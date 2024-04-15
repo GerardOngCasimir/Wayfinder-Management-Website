@@ -60,6 +60,11 @@
       question2Select.disabled = true;
       question2Div.style.opacity = 0.5; // Dim the second question
     }
+
+    // Reset question 3 if question 2 is disabled
+    if (question2Select.disabled) {
+      disableQuestion3();
+    }
   }
 
     function enableQuestion3() {
@@ -67,13 +72,21 @@
     var question3Select = document.getElementById("POI");
     var question3Div = document.getElementById("question3Div");
 
-    if (question1Value) {
+    if (question2Value) {
       question3Select.disabled = false;
       question3Div.style.opacity = 1; // Make the second question visible
     } else {
       question3Select.disabled = true;
       question3Div.style.opacity = 0.5; // Dim the second question
     }
+  }
+
+    function disableQuestion3() {
+    var question3Select = document.getElementById("question3");
+    var question3Div = document.getElementById("question3Div");
+
+    question3Select.disabled = true;
+    question3Div.style.opacity = 0.5; // Dim the third question
   }
 </script>
     
