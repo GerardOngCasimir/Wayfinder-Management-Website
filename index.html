@@ -29,7 +29,7 @@
 
         <div class = "question" id = "question2Div">
             <label for="level">Level:</label><br>
-            <select name="level" id="level" disabled>
+            <select name="level" id="level" onchange = "enableQuestion3()">
               <option value="">Select an option</option>
               <option value="Floor 1">Level 1</option>
               <option value="Floor 2">Level 2</option>
@@ -37,7 +37,7 @@
         </div>
     </div>
 
-    <div class = "question">
+    <div class = "question" id = "question3Div">
         <label for="POI">Point of Interest (POI):</label><br>
         <select name="POI" id="POI" disabled>
           <option value="">Select an option</option>
@@ -59,6 +59,20 @@
     } else {
       question2Select.disabled = true;
       question2Div.style.opacity = 0.5; // Dim the second question
+    }
+  }
+
+    function enableQuestion3() {
+    var question2Value = document.getElementById("level").value;
+    var question3Select = document.getElementById("POI");
+    var question3Div = document.getElementById("question3Div");
+
+    if (question1Value) {
+      question3Select.disabled = false;
+      question3Div.style.opacity = 1; // Make the second question visible
+    } else {
+      question3Select.disabled = true;
+      question3Div.style.opacity = 0.5; // Dim the second question
     }
   }
 </script>
