@@ -20,7 +20,7 @@
     <div class = "container">
         <div class = "question">
             <label for="facility">Facility:</label><br>
-            <select name="facility" id="facility">
+            <select name="facility" id="facility" onchange = "enableQuestion2()">
               <option value="None (Default)">None</option>
               <option value="Sembawang Polyclinic">SembawangPolyclinic</option>
               <option value="Hougang Polyclinic" disabled>HougangPolyclinic</option>
@@ -36,7 +36,7 @@
         </div>
     </div>
 
-    <div class = "question">
+    <div class = "question" id = "question2Div">
         <label for="POI">Point of Interest (POI):</label><br>
         <select name="POI" id="POI">
           <option value="None (Default)">None</option>
@@ -45,5 +45,22 @@
           <option value="1A - Self Service Kiosks">1A - Self Service Kiosks</option>
         </select>
     </div>
+
+<script>
+    function enableQuestion2() {
+    var question1Value = document.getElementById("facility").value;
+    var question2Select = document.getElementById("level");
+    var question2Div = document.getElementById("question2Div");
+
+    if (question1Value) {
+      question2Select.disabled = false;
+      question2Div.style.opacity = 1; // Make the second question visible
+    } else {
+      question2Select.disabled = true;
+      question2Div.style.opacity = 0.5; // Dim the second question
+    }
+  }
+</script>
+    
 </body>
 </html>
