@@ -1,4 +1,7 @@
-body, head
-{
-    font-family: Roboto, Arial, serif;
+.container {
+  display: flex; /* Use flexbox for layout */
+}
+
+.question {
+  margin-right: 20px; /* Add margin between questions */
 }
