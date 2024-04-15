@@ -238,7 +238,7 @@ tr:nth-child(even) {
     border-radius: 5px; /* Optional: adds rounded corners for aesthetics */
     box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: adds subtle shadow for depth */
 }
-.thumbnail-container:hover{
+.thumbnail-container img:hover{
     background-color: darken(#007bff, 10%); /* Slightly darken button on hover */
     box-shadow: 0 4px 8px rgba(0,0,123,0.3); /* Larger shadow on hover for 'lifting' effect */
 }
