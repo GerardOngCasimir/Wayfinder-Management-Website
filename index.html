@@ -2,18 +2,113 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Wayfinder Management</title>
-
-    <!-- fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
-
-    <!-- stylesheets -->
-    <link rel="stylesheet" href="resources/css/general.css">
-    <link rel="stylesheet" href="resources/css/header.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webpage Layout</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header class = "webpage-title">Wayfinder Management</header>
+    <nav><span class="nav-title">Way finding</span> 
+        <ul>
+            <li>Logout</li>
+            <li>About</li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="left-panel">
+            <div class="title-bar">
+                <h3>Title</h3>
+            </div>
+            <div class="section">
+                <div class="dropdown-group">
+                    <div class="dropdown-container">
+                        <label for="dropdown1">Institution</label>
+                        <select id="dropdown1">
+                            <option value="">Select Option</option>
+                        </select>
+                    </div>
+                    <div class="dropdown-container">
+                        <label for="dropdown2">Level</label>
+                        <select id="dropdown2">
+                            <option value="">Select Option</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="dropdown-container">
+                    <label for="dropdown3">Point of Interest (POI)</label>
+                    <select id="dropdown3">
+                        <option value="">Select Option</option>
+                    </select>
+                </div>
+                <div class="button-group">
+                    <button class="primary-btn">Load</button>
+                    <button class="secondary-btn">Reset</button>
+                </div>
+                
+            </div>
+            <div class="section">
+                <h3>Stats</h3>
+                <table>
+                    <tr>
+                        <td>Value 1</td>
+                        <td>Value 2</td>
+                    </tr>
+                    <tr>
+                        <td>Value 3</td>
+                        <td>Value 4</td>
+                    </tr>
+                </table>
+                <div class="table-header">
+                    <h3>Stats 2</h3>
+                    <div class="header-controls">
+                        <select id="table2Options" class="table-dropdown">
+                            <option value="">Select Option</option>
+                            <option value="opt1">Option 1</option>
+                            <option value="opt2">Option 2</option>
+                        </select>
+                        <button class="icon-btn"><img src="" alt="Refresh"/></button>
+                    </div>
+                </div>
+                <table>
+                    <tr>
+                        <td>Value 5</td>
+                        <td>Value 6</td>
+                    </tr>
+                    <tr>
+                        <td>Value 7</td>
+                        <td>Value 8</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="button-group">
+                    <button class="primary-btn">Add Institution</button>
+                    <button class="primary-btn">Add POI</button>
+            </div>
+        </div>
+        <div class="right-panel">
+            <h3>Title</h3>
+            <div class="title-bar">
+                <p>Image Name</p>
+                <div class="icons">
+                    <span>Edit</span>
+                    <span>Delete</span>
+                </div>
+            </div>
+            <div class="preview-container">
+                <img src="" alt="Preview" id="image-preview">
+            </div>
+                <div class="thumbnail-container">
+                    <!-- Thumbnails go here -->
+                    <img src="thumbnail1.jpg" alt="Thumbnail 1">
+                    <img src="thumbnail2.jpg" alt="Thumbnail 2">
+                    <img src="thumbnail3.jpg" alt="Thumbnail 3">
+                    <!-- Add more images as needed -->
+                </div>
+            
+                <div class="button-group">
+                <button class="primary-btn">Upload</button>
+            </div>
+            
+        </div>
+    </div>
 </body>
 </html>
