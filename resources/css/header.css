@@ -1,0 +1,15 @@
+.webpage-title
+{
+    /* display properties */
+    display: block;
+    margin-top: 50px;
+    padding-bottom: 20px;    
+    border-bottom: 0.2rem solid rgba(173, 216, 230, 0.35);
+    
+    /* font properties */
+    font-size: 30px;
+    font-weight: 550;
+    text-align: center;
+
+    color: #14a5a9;
+}
