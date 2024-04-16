@@ -17,8 +17,8 @@
 <body>
     <header class = "webpage-title">Wayfinder Management</header>
 
-    <div class = "container">
-        <div class = "question">
+    <div class = dropdown-group">
+        <div class = "dropdown-container">
             <label for="facility">Facility:</label><br>
             <select name="facility" id="facility" onchange = "enableQuestion2()">
               <option value="">Select an option</option>
@@ -27,7 +27,7 @@
             </select>
         </div>
 
-        <div class = "question" id = "question2Div">
+        <div class = "dropdown-container" id = "question2-div">
             <label for="level">Level:</label><br>
             <select name="level" id="level" disabled onchange = "enableQuestion3()">
               <option value="">Select an option</option>
@@ -37,7 +37,7 @@
         </div>
     </div>
 
-    <div class = "question" id = "question3Div">
+    <div class = "dropdown-container" id = "question3-div">
         <label for="POI">Point of Interest (POI):</label><br>
         <select name="POI" id="POI" disabled>
           <option value="">Select an option</option>
@@ -51,7 +51,7 @@
     function enableQuestion2() {
     var question1Value = document.getElementById("facility").value;
     var question2Select = document.getElementById("level");
-    var question2Div = document.getElementById("question2Div");
+    var question2Div = document.getElementById("question2-div");
 
     if (question1Value) {
       question2Select.disabled = false;
@@ -71,7 +71,7 @@
     function enableQuestion3() {
     var question2Value = document.getElementById("level").value;
     var question3Select = document.getElementById("POI");
-    var question3Div = document.getElementById("question3Div");
+    var question3Div = document.getElementById("question3-div");
 
     if (question2Value) {
       question3Select.disabled = false;
@@ -85,7 +85,7 @@
 
     function disableQuestion3() {
     var question3Select = document.getElementById("POI");
-    var question3Div = document.getElementById("question3Div");
+    var question3Div = document.getElementById("question3-div");
 
     question3Select.disabled = true;
     question3Div.style.opacity = 0.5; // Dim the third question
