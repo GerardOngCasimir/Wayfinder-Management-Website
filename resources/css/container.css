@@ -1,7 +1,28 @@
+/*Dropdown*/
 .container {
   display: flex; /* Use flexbox for layout */
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 .question {
   margin-right: 20px; /* Add margin between questions */
+  flex: 1;
 }
+
+select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: inset 0 1px 3px #ddd;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+  font-size: 16px;
+}
+
