@@ -40,7 +40,7 @@ body, html {
     .container {
         display: flex;
         padding: 20px;
-        height: 100vh; /* Optional: sets the container height to full viewport height */
+        height: 150vh; /* Optional: sets the container height to full viewport height */
         gap: 20px; /* Creates a gap between the two panels */
         background-color: #f4f4f4; /* Optional: background color for the container */
         }
@@ -255,7 +255,10 @@ nav ul li {
     cursor: pointer;
 }
 
-/**/
+/*styling text within the table*/
+.deco{
+    font-variant: small-caps;
+}
 /**/
 /**/
 /**/
