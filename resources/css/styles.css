@@ -179,7 +179,7 @@ body, html {
 /*Preview Container*/
     .preview-container {
         position: relative; /* Ensures proper positioning of elements within */
-        height: 500px; /* Set a fixed height or make it responsive as needed */
+        height: 220px; /* Set a fixed height or make it responsive as needed */
         background-color: #f9f9f9; /* Optional: background color for visibility */
         padding: 20px;
         border: 1px solid #ddd; /* Optional: adds a subtle border */
