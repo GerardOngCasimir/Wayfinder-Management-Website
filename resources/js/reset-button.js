@@ -25,6 +25,8 @@
     var thumbnailcontainer = document.getElementById("thumbnail container");
     thumbnailcontainer.style.opacity = 0.0;
 
+    alert("Options reset");
+    
     var image = document.getElementById('preview');
 
     image.src = "resources/images/Image-no-preview.png";
