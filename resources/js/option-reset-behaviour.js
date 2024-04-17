@@ -2,6 +2,8 @@ function enableQuestion2() {
     var question1Value = document.getElementById("facility").value;
     var question2Select = document.getElementById("level");
     var question2Div = document.getElementById("question2-div");
+    var question3Select = document.getElementById("POI");
+    var question3Div = document.getElementById("question3-div");
 
     if (question1Value) {
         question2Select.disabled = false;
@@ -19,6 +21,10 @@ function enableQuestion2() {
         question2Select.disabled = true;
         question2Div.style.opacity = 0.5; // Dim the second question
         document.getElementById("level").value = "";
+
+        question3Select.disabled = true;
+        question3Div.style.opacity = 0.5; // Dim the second question
+        document.getElementById("POI").value = "";
         
         loadbutton.disabled = true;
         loadbutton.className = "secondary-btn";

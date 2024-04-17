@@ -1,11 +1,5 @@
 ﻿function loadimage()
 {
-    /*
-    var image = document.getElementById('preview');
-    
-    image.src = "resources/images/Sembawang_TaxiStand_Test.jpg";
-     */
-    
     var uploadbutton = document.getElementById('upload');
     uploadbutton.disabled = false;
     uploadbutton.className = "primary-btn";
