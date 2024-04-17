@@ -172,9 +172,82 @@
                     </button>
                 </div>
             </div>
-            <div class="preview-container" id = "preview container">
-                <img src="resources/images/Image-no-preview.png" height="96" width="96" alt="preview" id="preview"/>
+            
+            
+            <!-- KLAUS STUFFS -->
+            
+            <div id ="imageBoxTest">
+                <img src="resources/images/Image-no-preview.png" alt="Default Image">
             </div>
+            
+            <button onclick="loadImageTest()">
+                Load Image Test
+            </button>
+
+            <button onclick="resetImage()">
+                Reset to Default
+            </button>
+            
+            <script>
+                function loadImageTest() 
+                {
+                    var img = new Image();
+                    img.src = 'resources/images/Sembawang_TaxiStand_Test.jpg'; // Specify the path to the new image
+                    img.onload = function()
+                    {
+                        document.getElementById('imageBoxTest').innerHTML = ''; // Clear the box first
+                        document.getElementById('imageBoxTest').appendChild(img); // Append the new image to the box
+                    };
+                    img.onerror = function() 
+                    {
+                        alert('Failed to load image.');
+                    };
+                }
+
+                function resetImage() {
+                    var img = new Image();
+                    img.src = 'resources/images/Image-no-preview.png'; // Path to the default image
+                    img.onload = function() 
+                    {
+                        document.getElementById('imageBoxTest').innerHTML = ''; // Clears the current image
+                        document.getElementById('imageBoxTest').appendChild(img); // Appends the default image
+                    };
+                    img.onerror = function() 
+                    {
+                        alert('Failed to reset to default image.');
+                    };
+                }
+            </script>
+
+            <style>
+                #imageBoxTest {
+                    width: 100%; 
+                    height: 400px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    overflow: hidden; 
+                }
+                #imageBoxTest img {
+                    max-width: 100%;
+                    max-height: 100%;
+                }
+            </style>
+
+
+            <!-- KLAUS STUFFS -->
+            
+            
+            
+            
+            
+            
+            
+            
+            
+<!--            <div class="preview-container" id = "preview container">-->
+<!--                <img src="resources/images/Image-no-preview.png" height="96" width="96" alt="preview" id="preview"/>-->
+<!--            </div>-->
             <div class="thumbnail-container" id = "thumbnail container">
                 <!-- Thumbnails go here -->
                 <img src="resources/images/Sembawang_TaxiStand_Test.jpg" alt="Thumbnail 1" onclick = "showPreview(this)">
