@@ -6,10 +6,25 @@ function enableQuestion2() {
     if (question1Value) {
         question2Select.disabled = false;
         question2Div.style.opacity = 1; // Make the second question visible
+        
+        var loadbutton = document.getElementById("load");
+        loadbutton.disabled = false;
+        loadbutton.className = "primary-btn";
+
+        var resetbutton = document.getElementById("reset");
+        resetbutton.disabled = false;
+        resetbutton.className = "primary-btn";
+        
     } else {
         question2Select.disabled = true;
         question2Div.style.opacity = 0.5; // Dim the second question
         document.getElementById("level").value = "";
+        
+        loadbutton.disabled = true;
+        loadbutton.className = "secondary-btn";
+
+        resetbutton.disabled = true;
+        resetbutton.className = "secondary-btn";
     }
 
     // Reset question 3 if question 2 is disabled

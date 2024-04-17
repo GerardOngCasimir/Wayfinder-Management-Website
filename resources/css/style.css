@@ -1,0 +1,128 @@
+/*icon*/
+.icons {
+    text-align: right;
+    }
+
+
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    }
+
+.icon-btn img {
+    height: 20px; /* Ensure the icon isn't too large */
+    width: 20px;
+ }
+
+td {
+    
+    padding: 8px; /* Padding for content within cells */
+    text-align: left; /* Align text to the left */
+    background-color:none; /* Light background for better readability */
+    }
+tr:nth-child(even) {
+    background-color: none; /* Zebra striping for rows */
+    }
+/*Typography*/
+
+h2 {
+    margin: 0;
+    flex-shrink: 0; /* Prevents the title from shrinking */
+}
+
+h3 {
+    margin: 0;
+    flex-shrink: 0; /* Prevents the title from shrinking */
+}
+
+/*Preview Container*/
+.preview-container {
+    position: relative; /* Ensures proper positioning of elements within */
+    height: 350px; /* Set a fixed height or make it responsive as needed */
+    background-color: #f9f9f9; /* Optional: background color for visibility */
+    padding: 20px;
+    border: 1px solid #ddd; /* Optional: adds a subtle border */
+    margin-bottom: 20px; /* Space below the container */
+    }
+
+.empty-space {
+    height: 30%; /* 30% of the parent container's height */
+    background-color: #e0e0e0; /* Light gray for visibility, can be set to transparent */
+    }
+
+#image-preview {
+    width: 100%; /* Full width of the container */
+    height: calc(70% - 40px); /* Remaining height minus any padding/margins */
+    object-fit: cover; /* Ensures the image covers the area properly without distortion */
+    }
+
+.enlarged
+{
+    transform: scale(0.3);
+}
+/*thumbnail*/
+.thumbnail-container {
+    display: flex;
+    overflow-x: scroll;
+    margin-top: 10px;
+    opacity: 0.0;
+    }
+.thumbnail-container {
+    display: flex;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    align-items: center; /* Centers thumbnails vertically */
+    padding: 10px 0; /* Padding above and below the thumbnails */
+    gap: 10px; /* Space between thumbnails */
+    margin-top: 20px; /* Space between the preview container and thumbnail section */
+    }
+
+.thumbnail-container img {
+    height: 100px; /* Fixed height for each thumbnail */
+    width: auto; /* Maintain aspect ratio */
+    flex: 0 0 auto; /* Don’t grow, don’t shrink, based on width auto */
+    border-radius: 5px; /* Optional: adds rounded corners for aesthetics */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: adds subtle shadow for depth */
+    }
+.thumbnail-container img:hover{
+    background-color: darken(#007bff, 10%); /* Slightly darken button on hover */
+    box-shadow: 0 4px 8px rgba(0,0,123,0.3); /* Larger shadow on hover for 'lifting' effect */
+    }
+
+/*navigation bar*/
+nav {
+    background-color: #333;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    
+}
+.nav-title{
+    font-size: 25px;
+}
+
+nav p{
+    text-align: left;
+    font-size: large;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/*styling text within the table*/
+.deco{
+    font-variant: small-caps;
+}

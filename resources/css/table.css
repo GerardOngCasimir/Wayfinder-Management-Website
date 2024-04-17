@@ -1,0 +1,30 @@
+﻿/*Table*/
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px; /* Spacing above the table */
+}
+.table-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px; /* Space between header and table */
+}
+.table-header h2 {
+    margin: 0;
+    flex-grow: 1; /* Allows the title to take up necessary space */
+}
+.header-controls {
+    display: flex;
+    align-items: center;
+}
+.table-dropdown {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: white;
+    color: #333;
+    font-size: 14px;
+    margin-left: 10px; /* Additional space to separate from the title */
+    flex-grow: 1; /* Allows the dropdown to expand based on available space */
+}

@@ -12,44 +12,185 @@
     <!-- stylesheets -->
     <link rel="stylesheet" href="resources/css/general.css">
     <link rel="stylesheet" href="resources/css/header.css">
+    <link rel="stylesheet" href="resources/css/style.css">
+    <link rel="stylesheet" href="resources/css/button.css">
     <link rel="stylesheet" href="resources/css/container.css">
-    
+    <link rel="stylesheet" href="resources/css/dropdown.css">
+    <link rel="stylesheet" href="resources/css/headertitle.css">
+    <link rel="stylesheet" href="resources/css/table.css">
+
     <!-- javascripts -->
-    <script src="resources/js/optionresetbehaviour.js"></script>
-    
+    <script src="resources/js/option-reset-behaviour.js"></script>
+    <script src="resources/js/reset-button.js"></script>
+    <script src="resources/js/load-image.js"></script>
+    <script src="resources/js/show-preview.js"></script>
 </head>
+
 <body>
     <header class = "webpage-title">Wayfinder Management</header>
 
-    <div class = dropdown-group">
-        <div class = "dropdown-container">
-            <label for="facility">Facility:</label><br>
-            <select name="facility" id="facility" onchange = "enableQuestion2()">
-              <option value="">Select an option</option>
-              <option value="Sembawang Polyclinic">SembawangPolyclinic</option>
-              <option value="Hougang Polyclinic" disabled>HougangPolyclinic</option>
-            </select>
+    <div class = "container">
+        <div class = "left-panel">
+            <div class="title-bar">
+                <h3>Title</h3>
+            </div>
+            
+            <div class = "section">
+                <div class = "dropdown-group">
+                    <div class = "dropdown-container">
+                        <label for="facility">Facility</label>
+                        <select name="facility" id="facility" onchange = "enableQuestion2()">
+                            <option value="">Select an option</option>
+                            <option value="Sembawang Polyclinic">Sembawang Polyclinic</option>
+                            <option value="Hougang Polyclinic" disabled>Hougang Polyclinic</option>
+                        </select>
+                    </div>
+
+                    <div class = "dropdown-container" id = "question2-div">
+                        <label for="level">Level</label>
+                        <select name="level" id="level" disabled onchange = "enableQuestion3()">
+                            <option value="">Select an option</option>
+                            <option value="Floor 1">Level 1</option>
+                            <option value="Floor 2">Level 2</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class = "dropdown-container" id = "question3-div">
+                    <label for="POI">Point of Interest (POI)</label>
+                    <select name="POI" id="POI" disabled>
+                        <option value="">Select an option</option>
+                        <option value="Taxi Stand / Pick-Up Point">Taxi Stand / Pick-Up Point</option>
+                        <option value="Drop-Off Point">Drop-Off Point</option>
+                        <option value="1A - Self Service Kiosks">1A - Self Service Kiosks</option>
+                    </select>
+                </div>
+                <div class="button-group">
+                    <button class="secondary-btn" id = "load" onclick = "loadimage()" disabled>Load</button>
+                    <button class="secondary-btn" id = "reset" onclick = "resetselection(); removePreview();" disabled>Reset</button>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>Feature Interaction stats</h3>
+                <table>
+                    <tr>
+                        <td>Total </td>
+                        <td>Sucessful </td>
+                        <td>Failed </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+
+                    </tr>
+                    <tr>
+                        <td>Longest (min)</td>
+                        <td>Shortest (min)</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+
+                    </tr>
+
+                </table>
+                <div class="table-header">
+                    <h3>Top Routes</h3>
+                    <div class="header-controls">
+                        <select id="table2Options" class="table-dropdown">
+                            <option value="">Select Option</option>
+                            <option value="opt1">Option 1</option>
+                            <option value="opt2">Option 2</option>
+                        </select>
+                        <button class="icon-btn"><img src="" alt="Refresh"/></button>
+                    </div>
+                </div>
+                <table>
+                    <tr>
+                        <td class="deco">Cross Level</td>
+                    </tr>
+                    <tr>
+                        <td>Level 1</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Level 2</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td class="deco">Single Level</td>
+                    </tr>
+                    <tr>
+                        <td>Level 1</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Level 2</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
         </div>
 
-        <div class = "dropdown-container" id = "question2-div">
-            <label for="level">Level:</label><br>
-            <select name="level" id="level" disabled onchange = "enableQuestion3()">
-              <option value="">Select an option</option>
-              <option value="Floor 1">Level 1</option>
-              <option value="Floor 2">Level 2</option>
-            </select>
-        </div>
-    </div>
+        <div class="right-panel">
+            <h3>Preview</h3>
+            <div class="title-bar">
+                <p>Image Name</p>
+                <div class="button-group">
+                    <button class="icon-btn" disabled>
+                        <img src="resources/images/Image-Edit-disabled.png" alt="Edit thumbnail">
+                    </button>
+                    <button class="icon-btn" disabled>
+                        <img src="resources/images/Image-Delete-disabled.png" alt="Delete thumbnail">
+                    </button>
+                </div>
+            </div>
+            <div class="preview-container" id = "preview container">
+                <img src="resources/images/Image-no-preview.png" height="96" width="96" alt="preview" id="preview"/>
+            </div>
+            <div class="thumbnail-container" id = "thumbnail container">
+                <!-- Thumbnails go here -->
+                <img src="resources/images/Sembawang_TaxiStand_Test.jpg" alt="Thumbnail 1" onclick = "showPreview(this)">
+                <img src="resources/images/Sembawang_TaxiStand_Test.jpg" alt="Thumbnail 2">
+                <img src="resources/images/Sembawang_TaxiStand_Test.jpg" alt="Thumbnail 3">
+                <!-- Add more images as needed -->
+            </div>
 
-    <div class = "dropdown-container" id = "question3-div">
-        <label for="POI">Point of Interest (POI):</label><br>
-        <select name="POI" id="POI" disabled>
-          <option value="">Select an option</option>
-          <option value="Taxi Stand / Pick-Up Point">Taxi Stand / Pick-Up Point</option>
-          <option value="Drop-Off Point">Drop-Off Point</option>
-          <option value="1A - Self Service Kiosks">1A - Self Service Kiosks</option>
-        </select>
+            <div class="button-group">
+                <button class="secondary-btn" id = "upload" disabled>Upload</button>
+            </div>
+
+        </div>
+        
     </div>
+    
     
 </body>
 </html>
