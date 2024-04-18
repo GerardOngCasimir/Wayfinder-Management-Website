@@ -184,6 +184,81 @@
                 <button class="secondary-btn" id = "upload" disabled>Upload</button>
             </div>
 
+            <!-- Json test -->
+
+            <h1 id="universityName"></h1>
+            <div>
+                <label for="floor">Choose Floor:</label>
+                <select id="floor" onchange="updatePointsOfInterest()">
+                    <option value="">Select Floor</option>
+                </select>
+            </div>
+            <div>
+                <label for="pointsOfInterest">Choose POI:</label>
+                <select id="pointsOfInterest">
+                    <option value="">Select POI</option>
+                </select>
+            </div>
+
+            <script>
+                const jsonData = {
+                    "_id": "ObjectId('uniqueidentifier123')",
+                    "name": "Tech University",
+                    "floors": ["L1", "L2", "B1"],
+                    "pointsOfInterest": [
+                        {
+                            "displayName": "Main Library",
+                            "dataName": "main_library",
+                            "latitude": 40.712776,
+                            "longitude": -74.005974,
+                            "floor": "L1"
+                        },
+                        {
+                            "displayName": "Taxi Stand",
+                            "dataName": "taxi_stand",
+                            "latitude": 40.712776,
+                            "longitude": -74.005974,
+                            "floor": "L1"
+                        },
+                        {
+                            "displayName": "Cafeteria",
+                            "dataName": "cafeteria_001",
+                            "latitude": 40.712992,
+                            "longitude": -74.006034,
+                            "floor": "L2"
+                        }
+                    ]
+                };
+
+                // Populate university name
+                document.getElementById('universityName').textContent = jsonData.name;
+
+                // Populate floors dropdown
+                const floorsDropdown = document.getElementById('floor');
+                jsonData.floors.forEach(floor => {
+                    const option = document.createElement('option');
+                    option.textContent = floor;
+                    floorsDropdown.appendChild(option);
+                });
+
+                // Populate points of interesets based on floor chosen
+                function updatePointsOfInterest() {
+                    const selectedFloor = document.getElementById('floor').value;
+                    const pointsOfInterestDropdown = document.getElementById('pointsOfInterest');
+                    pointsOfInterestDropdown.innerHTML = '<option value="">Select an option</option>'; // Clear previous list and put a default option
+
+                    const pointsOfInterest = jsonData.pointsOfInterest.filter(point => point.floor === selectedFloor);
+                    pointsOfInterest.forEach(point => {
+                        const option = document.createElement('option');
+                        option.textContent = point.displayName;
+                        option.value = point.dataName;
+                        pointsOfInterestDropdown.appendChild(option);
+                    });
+                }
+            </script>
+
+            <!-- Json test -->
+            
         </div>
         
     </div>
