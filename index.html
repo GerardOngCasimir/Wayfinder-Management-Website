@@ -189,7 +189,7 @@
             <h1 id="institutionName"></h1>
             <div>
                 <label for="floor">Choose Floor:</label>
-                <select id="floor" onchange="updatePointsOfInterest()">
+                <select id="floor">
                     <option value="">Select Floor</option>
                 </select>
             </div>
@@ -255,6 +255,17 @@
                         .then(data => 
                         {
                             console.log('Printing successful JSON Data: ' + JSON.stringify(data));
+                            
+                            const str = JSON.stringify(data);
+                            const parsedObject = JSON.parse(str);
+                            
+                            const documents = parsedObject.documents;
+                            console.log(documents);
+                            
+                            const firstDocument = documents[0];
+                            const name = firstDocument.name;
+                            console.log(name);
+                            
                             populateDropdowns(data);
                         })
                         .catch(error => 
@@ -262,14 +273,17 @@
                             console.error('There was a problem with your fetch operation:', error);
                         });
                 }
-
+                
                 // Function to populate dropdowns with fetched data
                 function populateDropdowns(jsonData) {
 
+                    const parsedObject = JSON.parse(JSON.stringify(jsonData));
+                    const documents = parsedObject.documents;
+                    const firstDocument = documents[0];
                     
-                    const institutionName = jsonData.name;
-                    const floors = jsonData.floors;
-                    const pointsOfInterest = jsonData.pointsOfInterest;
+                    const institutionName = firstDocument.name;
+                    const floors = firstDocument.floors;
+                    const pointsOfInterest = firstDocument.pointsOfInterest;
 
                     // Populate university name
                     document.getElementById('institutionName').textContent = institutionName;
@@ -281,7 +295,7 @@
                         option.textContent = floor;
                         floorsDropdown.appendChild(option);
                     });
-
+                    
                     // Populate points of interest dropdown
                     const pointsOfInterestDropdown = document.getElementById('pointsOfInterest');
                     pointsOfInterest.forEach(point => {
@@ -291,14 +305,22 @@
                         pointsOfInterestDropdown.appendChild(option);
                     });
                 }
-
+                
                 // Function to update points of interest dropdown based on the selected floor
-                function updatePointsOfInterest() {
+                function updatePointsOfInterest(jsonData) {
+
+                    const parsedObject = JSON.parse(JSON.stringify(jsonData));
+                    const documents = parsedObject.documents;
+                    const firstDocument = documents[0];
+                    
+                    const pointsOfInterest = firstDocument.pointsOfInterest;
+
+
                     const selectedFloor = document.getElementById('floor').value;
                     const pointsOfInterestDropdown = document.getElementById('pointsOfInterest');
-                    pointsOfInterestDropdown.innerHTML = ''; // Clear previous options
+                    pointsOfInterestDropdown.innerHTML = '<option value="">Select POI</option>'; // Clear previous options
 
-                    const filteredPointsOfInterest = jsonData.pointsOfInterest.filter(point => point.floor === selectedFloor);
+                    const filteredPointsOfInterest = pointsOfInterest.filter(point => point.floor === selectedFloor);
                     filteredPointsOfInterest.forEach(point => {
                         const option = document.createElement('option');
                         option.textContent = point.displayName;

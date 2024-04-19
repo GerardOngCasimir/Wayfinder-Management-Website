@@ -18,9 +18,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2fD1rQQF3JBmHSrM8sWEqxL7H1t" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -36,14 +36,15 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "SolutionBuilderGeneralOptionsPage",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
     "rider.external.source.directories": [
-      "/Users/daf/Library/Application Support/JetBrains/Rider2023.2/resharper-host/DecompilerCache",
-      "/Users/daf/Library/Application Support/JetBrains/Rider2023.2/resharper-host/SourcesCache",
-      "/Users/daf/.local/share/Symbols/src"
+      "C:\\Users\\casim\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\casim\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\casim\\AppData\\Local\\Symbols\\src"
     ]
   }
 }]]></component>
@@ -56,12 +57,14 @@
       <option name="presentableId" value="Default" />
       <updated>1704336942440</updated>
       <workItem from="1713321038318" duration="1131000" />
+      <workItem from="1713503811349" duration="10882000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
