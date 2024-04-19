@@ -186,7 +186,7 @@
 
             <!-- Json test -->
 
-            <h1 id="universityName"></h1>
+            <h1 id="institutionName"></h1>
             <div>
                 <label for="floor">Choose Floor:</label>
                 <select id="floor" onchange="updatePointsOfInterest()">
@@ -201,53 +201,57 @@
             </div>
 
             <script>
-                const jsonData = {
-                    "_id": "ObjectId('uniqueidentifier123')",
-                    "name": "Tech University",
-                    "floors": ["L1", "L2", "B1"],
-                    "pointsOfInterest": [
-                        {
-                            "displayName": "Main Library",
-                            "dataName": "main_library",
-                            "latitude": 40.712776,
-                            "longitude": -74.005974,
-                            "floor": "L1"
+                // Function to fetch JSON data
+                function fetchData() {
+                    const url = 'https://ap-southeast-1.aws.data.mongodb-api.com/app/data-btthb/endpoint/data/v1/action/find';
+                    const apiKey = 'ijUXdVI64I40TJAhwtv1gzDl1XK65VlYfEtRRsjBv5jec4Uv0BRiNhAVZSEZC5Z7';
+                    const requestData = {
+                        "collection": "Institutions",
+                        "database": "WayfinderManagement",
+                        "dataSource": "Dev-WayfinderManagement"
+                    };
+
+                    fetch(url, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'api-key': apiKey,
                         },
-                        {
-                            "displayName": "Taxi Stand",
-                            "dataName": "taxi_stand",
-                            "latitude": 40.712776,
-                            "longitude": -74.005974,
-                            "floor": "L1"
-                        },
-                        {
-                            "displayName": "Cafeteria",
-                            "dataName": "cafeteria_001",
-                            "latitude": 40.712992,
-                            "longitude": -74.006034,
-                            "floor": "L2"
-                        }
-                    ]
-                };
+                        body: JSON.stringify(requestData),
+                    })
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Network response was not ok');
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            populateDropdowns(data);
+                        })
+                        .catch(error => {
+                            console.error('There was a problem with your fetch operation:', error);
+                        });
+                }
 
-                // Populate university name
-                document.getElementById('universityName').textContent = jsonData.name;
+                // Function to populate dropdowns with fetched data
+                function populateDropdowns(jsonData) {
+                    const institutionName = jsonData.name;
+                    const floors = jsonData.floors;
+                    const pointsOfInterest = jsonData.pointsOfInterest;
 
-                // Populate floors dropdown
-                const floorsDropdown = document.getElementById('floor');
-                jsonData.floors.forEach(floor => {
-                    const option = document.createElement('option');
-                    option.textContent = floor;
-                    floorsDropdown.appendChild(option);
-                });
+                    // Populate university name
+                    document.getElementById('institutionName').textContent = institutionName;
 
-                // Populate points of interesets based on floor chosen
-                function updatePointsOfInterest() {
-                    const selectedFloor = document.getElementById('floor').value;
+                    // Populate floors dropdown
+                    const floorsDropdown = document.getElementById('floor');
+                    floors.forEach(floor => {
+                        const option = document.createElement('option');
+                        option.textContent = floor;
+                        floorsDropdown.appendChild(option);
+                    });
+
+                    // Populate points of interest dropdown
                     const pointsOfInterestDropdown = document.getElementById('pointsOfInterest');
-                    pointsOfInterestDropdown.innerHTML = '<option value="">Select an option</option>'; // Clear previous list and put a default option
-
-                    const pointsOfInterest = jsonData.pointsOfInterest.filter(point => point.floor === selectedFloor);
                     pointsOfInterest.forEach(point => {
                         const option = document.createElement('option');
                         option.textContent = point.displayName;
@@ -255,6 +259,24 @@
                         pointsOfInterestDropdown.appendChild(option);
                     });
                 }
+
+                // Function to update points of interest dropdown based on the selected floor
+                function updatePointsOfInterest() {
+                    const selectedFloor = document.getElementById('floor').value;
+                    const pointsOfInterestDropdown = document.getElementById('pointsOfInterest');
+                    pointsOfInterestDropdown.innerHTML = ''; // Clear previous options
+
+                    const filteredPointsOfInterest = jsonData.pointsOfInterest.filter(point => point.floor === selectedFloor);
+                    filteredPointsOfInterest.forEach(point => {
+                        const option = document.createElement('option');
+                        option.textContent = point.displayName;
+                        option.value = point.dataName;
+                        pointsOfInterestDropdown.appendChild(option);
+                    });
+                }
+
+                // Fetch data when the page loads
+                window.onload = fetchData;
             </script>
 
             <!-- Json test -->
