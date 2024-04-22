@@ -295,7 +295,11 @@
                     // Populate university name
                     //document.getElementById('institutionName').textContent = institutionName;
                     
-                    console.log(parsedObject.documents.name);
+                    // console.log(parsedObject.documents.name);
+                    //Foreach loop to get all available institutions
+                    documents.forEach(institution => {
+                        console.log("WHATSUP = " + institution.name);
+                    });
                     
                     // Populate floors dropdown
                     const floorsDropdown = document.getElementById('floor');
