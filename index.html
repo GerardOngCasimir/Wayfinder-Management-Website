@@ -186,7 +186,12 @@
 
             <!-- Json test -->
 
-            <h1 id="institutionName"></h1>
+            <div>
+                <label for="institutionName">Choose Institution:</label>
+                <select id="institutionName">
+                    <option value="">Select Institution</option>
+                </select>
+            </div>
             <div>
                 <label for="floor">Choose Floor:</label>
                 <select id="floor">
@@ -258,12 +263,13 @@
                             
                             const str = JSON.stringify(data);
                             const parsedObject = JSON.parse(str);
+                            console.log(parsedObject);
                             
                             const documents = parsedObject.documents;
                             console.log(documents);
                             
-                            const firstDocument = documents[0];
-                            const name = firstDocument.name;
+                            //const firstDocument = documents[0];
+                            const name = documents[0].name;
                             console.log(name);
                             
                             populateDropdowns(data);
@@ -281,13 +287,16 @@
                     const documents = parsedObject.documents;
                     const firstDocument = documents[0];
                     
-                    const institutionName = firstDocument.name;
                     const floors = firstDocument.floors;
                     const pointsOfInterest = firstDocument.pointsOfInterest;
 
+                    const institutionNames = parsedObject.name;
+                    
                     // Populate university name
-                    document.getElementById('institutionName').textContent = institutionName;
-
+                    //document.getElementById('institutionName').textContent = institutionName;
+                    
+                    console.log(parsedObject.documents.name);
+                    
                     // Populate floors dropdown
                     const floorsDropdown = document.getElementById('floor');
                     floors.forEach(floor => {
