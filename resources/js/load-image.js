@@ -6,6 +6,7 @@
     
     var thumbnailcontainer = document.getElementById("thumbnail container");
     thumbnailcontainer.style.opacity = 1.0;
+    thumbnailcontainer.style.display = "block";
 }
 
 var button = document.getElementById("load");

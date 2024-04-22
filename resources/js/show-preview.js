@@ -1,5 +1,7 @@
 ﻿function showPreview(clickedImage)
 {
+    document.getElementById("thumbnail container").style.display = "block";
+    
     var img = new Image();
     img.src = clickedImage.src; // Set the variable img source as the clicked imaged
     img.onload = function()
