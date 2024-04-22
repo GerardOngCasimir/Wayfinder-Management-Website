@@ -24,7 +24,8 @@
     <script src="resources/js/reset-button.js"></script>
     <script src="resources/js/load-image.js"></script>
     <script src="resources/js/show-preview.js"></script>
-    <script src="resources/js/Sembawang-POI.js"></script>
+    <script src="resources/js/fetched-data-Sembawang.js"></script>
+    <script src="resources/js/fetched-Json-data.js"></script>
 </head>
 
 <body>
@@ -40,16 +41,14 @@
                 <div class = "dropdown-group">
                     <div class = "dropdown-container">
                         <label for="facility">Facility</label>
-                        <select name="facility" id="facility" onchange = "enableQuestion2();updateLevel();">
+                        <select name="facility" id="facility" onchange = "enableQuestion2()">
                             <option value="">Select an option</option>
-                            <option value="Sembawang Polyclinic">Sembawang Polyclinic</option>
-                            <option value="Hougang Polyclinic" disabled>Hougang Polyclinic</option>
                         </select>
                     </div>
 
                     <div class = "dropdown-container" id = "question2-div">
                         <label for="level">Level</label>
-                        <select name="level" id="level" disabled onchange = "enableQuestion3();updatePOI();">
+                        <select name="level" id="level" disabled onchange = "enableQuestion3()">
                             <option value="">Select an option</option>
                         </select>
                     </div>
@@ -183,164 +182,6 @@
             <div class="button-group">
                 <button class="secondary-btn" id = "upload" disabled>Upload</button>
             </div>
-
-            <!-- Json test -->
-
-            <div>
-                <label for="institutionName">Choose Institution:</label>
-                <select id="institutionName">
-                    <option value="">Select Institution</option>
-                </select>
-            </div>
-            <div>
-                <label for="floor">Choose Floor:</label>
-                <select id="floor">
-                    <option value="">Select Floor</option>
-                </select>
-            </div>
-            <div>
-                <label for="pointsOfInterest">Choose POI:</label>
-                <select id="pointsOfInterest">
-                    <option value="">Select POI</option>
-                </select>
-            </div>
-
-            <script>
-                // Function to fetch JSON data
-                //TODO: Improve code performance
-                //TODO: Migrate to a more secure user authentication method
-                //TODO: Create proxy server and forward all requests to proxy server instead for increased security and shortened code
-                function fetchData()
-                {
-                    const authUrl = 'https://services.cloud.mongodb.com/api/client/v2.0/app/data-btthb/auth/providers/anon-user/login';
-
-                    //Fetch authentication token to authenticate users
-                    //Temporarily allowing anon user login, not secure
-                    //Migrate to a more secure authentication method in the near future
-                    fetch(authUrl, 
-                        {
-                        method: 'POST',
-                        headers: 
-                            {
-                                'Content-Type': 'application/json'
-                            }
-                        })
-                        .then(response => response.json())
-                        .then(authData => 
-                        {
-                            //Pass access token to data request header to remove CORS policy on browsers
-                            const accessToken = authData.access_token;
-                            const dataUrl = 'https://ap-southeast-1.aws.data.mongodb-api.com/app/data-btthb/endpoint/data/v1/action/find';
-                            const requestData = 
-                                {
-                                    "collection": "Institutions",
-                                    "database": "WayfinderManagement",
-                                    "dataSource": "Dev-WayfinderManagement"
-                                };
-
-                            return fetch(dataUrl, 
-                                {
-                                    method: 'POST',
-                                    headers: 
-                                        {
-                                            'Content-Type': 'application/json',
-                                            'Authorization': `Bearer ${accessToken}`
-                                        },
-                                body: JSON.stringify(requestData),
-                                });
-                        })
-                        .then(response => 
-                        {
-                            if (!response.ok) 
-                            {
-                                throw new Error('Network response was not ok');
-                            }
-                            return response.json();
-                        })
-                        .then(data => 
-                        {
-                            console.log('Printing successful JSON Data: ' + JSON.stringify(data));
-                            
-                            const str = JSON.stringify(data);
-                            const parsedObject = JSON.parse(str);
-                            console.log(parsedObject);
-                            
-                            const documents = parsedObject.documents;
-                            console.log(documents);
-                            
-                            //const firstDocument = documents[0];
-                            const name = documents[0].name;
-                            console.log(name);
-                            
-                            populateDropdowns(data);
-                        })
-                        .catch(error => 
-                        {
-                            console.error('There was a problem with your fetch operation:', error);
-                        });
-                }
-                
-                // Function to populate dropdowns with fetched data
-                function populateDropdowns(jsonData) {
-
-                    const parsedObject = JSON.parse(JSON.stringify(jsonData));
-                    const documents = parsedObject.documents;
-                    const firstDocument = documents[1];
-                    
-                    const floors = firstDocument.floors;
-                    const pointsOfInterest = firstDocument.pointsOfInterest;
-                    
-                    // Populate institution names dropdown
-                    const institutionsDropdown = document.getElementById('institutionName');
-                    documents.forEach(institution => {
-                        // check if either floors or points of interests are empty
-                        if (institution.floors.length === 0 || institution.pointsOfInterest.length === 0)
-                        {
-                            return; // Skip this iteration if either is empty
-                        }
-                        
-                        const option = document.createElement('option');
-                        option.textContent = institution.name;
-                        institutionsDropdown.appendChild(option);
-                    });
-                    
-                    // Populate floors dropdown
-                    const floorsDropdown = document.getElementById('floor');
-                    floors.forEach(floor => {
-                        const option = document.createElement('option');
-                        option.textContent = floor;
-                        floorsDropdown.appendChild(option);
-                    });
-
-                    // Populate points of interest dropdown based on selected floor
-                    const pointsOfInterestDropdown = document.getElementById('pointsOfInterest');
-
-                    function updatePointsOfInterest() {
-                        const selectedFloor = floorsDropdown.value;
-                        pointsOfInterestDropdown.innerHTML = '<option value="">Select an option</option>'; // Clear existing options
-
-                        const filteredPointsOfInterest = pointsOfInterest.filter(point => point.floor === selectedFloor);
-                        filteredPointsOfInterest.forEach(point => {
-                            const option = document.createElement('option');
-                            option.textContent = point.displayName;
-                            option.value = point.dataName;
-                            pointsOfInterestDropdown.appendChild(option);
-                        });
-                    }
-
-                    // Initial population
-                    updatePointsOfInterest();
-
-                    // Event listener for floor selection
-                    floorsDropdown.addEventListener('change', updatePointsOfInterest);
-                }
-
-                // Fetch data when the page loads
-                window.onload = fetchData;
-            </script>
-
-            <!-- Json test -->
-            
         </div>
         
     </div>
