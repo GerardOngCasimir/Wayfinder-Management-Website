@@ -34,6 +34,15 @@
     deleteicon.disabled = true;
     deleteicon.src = "resources/images/Image-Delete-disabled.png";
 
+    var routeTable = document.getElementById('routeTable');
+    routeTable.textContent = "";
+    
+    var TotalSuccessFailedTable = document.getElementById('TotalSuccessFailedTable');
+    TotalSuccessFailedTable.textContent = "";
+    
+    var LongestShortestTable = document.getElementById('LongestShortestTable');
+    LongestShortestTable.textContent = "";
+
     var level = document.getElementById('level');
     var POI = document.getElementById('POI');
     
@@ -42,9 +51,6 @@
     var image = document.getElementById('preview-container');
 
     image.src = "resources/images/Image-no-preview.png";
-
-    // Fetch data when the page loads
-    window.onload = fetchData;
 }
 
 var button = document.getElementById("reset");
