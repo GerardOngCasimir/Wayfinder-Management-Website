@@ -32,7 +32,7 @@ function populateDropdowns(jsonData) {
 
     // Populate points of interest dropdown based on selected floor
     const pointsOfInterestDropdown = document.getElementById('POI');
-
+    
     function updatePointsOfInterest() {
         const selectedFloor = floorsDropdown.value;
         pointsOfInterestDropdown.innerHTML = '<option value="">Select an option</option>'; // Clear existing options

@@ -5,15 +5,24 @@ function enableQuestion2() {
     var question3Select = document.getElementById("POI");
     var question3Div = document.getElementById("question3-div");
 
+    var loadbutton = document.getElementById("load");
+    var resetbutton = document.getElementById("reset");
+    var thumbnailcontainer = document.getElementById("thumbnail container");
+    var editicon = document.getElementById("edit icon");
+    var deleteicon = document.getElementById("delete icon");
+    var image = document.getElementById('preview-container');
+    var uploadbutton = document.getElementById('upload');
+    var routeTable = document.getElementById('routeTable');
+    var TotalSuccessFailedTable = document.getElementById('TotalSuccessFailedTable');
+    var LongestShortestTable = document.getElementById('LongestShortestTable');
+    
     if (question1Value) {
         question2Select.disabled = false;
         question2Div.style.opacity = 1; // Make the second question visible
         
-        var loadbutton = document.getElementById("load");
         loadbutton.disabled = false;
         loadbutton.className = "primary-btn";
-
-        var resetbutton = document.getElementById("reset");
+        
         resetbutton.disabled = false;
         resetbutton.className = "primary-btn";
         
@@ -31,6 +40,26 @@ function enableQuestion2() {
 
         resetbutton.disabled = true;
         resetbutton.className = "secondary-btn";
+        
+        thumbnailcontainer.style.opacity = 0.0;
+        thumbnailcontainer.style.display = "none";
+        
+        editicon.disabled = true;
+        editicon.src = "resources/images/Image-Edit-disabled.png";
+        
+        deleteicon.disabled = true;
+        deleteicon.src = "resources/images/Image-Delete-disabled.png";
+        
+        uploadbutton.disabled = true;
+        uploadbutton.className = "secondary-btn";
+        
+        routeTable.textContent = "";
+        
+        TotalSuccessFailedTable.textContent = "";
+        
+        LongestShortestTable.textContent = "";
+        
+        removePreview();
     }
 
     // Reset question 3 if question 2 is disabled
