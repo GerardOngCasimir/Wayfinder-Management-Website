@@ -175,7 +175,7 @@ function fetchPOINameData(institutionName, latitude, longitude)
         .then(data =>
         {
             console.log('Printing successful JSON Data: ' + JSON.parse(JSON.stringify(data)).displayName);
-            return JSON.parse(JSON.stringify(data)).displayName;
+            return data;
         })
         .catch(error =>
         {
