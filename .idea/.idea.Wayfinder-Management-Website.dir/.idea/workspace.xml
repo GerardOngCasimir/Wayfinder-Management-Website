@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c45f481-2d43-4932-8cab-0d4915f0d674" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Wayfinder-Management-Website.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Wayfinder-Management-Website.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/fetched-Json-data.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/fetched-Json-data.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,9 +43,9 @@
   },
   "keyToStringList": {
     "rider.external.source.directories": [
-      "C:\\Users\\casim\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\casim\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
-      "C:\\Users\\casim\\AppData\\Local\\Symbols\\src"
+      "/Users/daf/Library/Application Support/JetBrains/Rider2023.2/resharper-host/DecompilerCache",
+      "/Users/daf/Library/Application Support/JetBrains/Rider2023.2/resharper-host/SourcesCache",
+      "/Users/daf/.local/share/Symbols/src"
     ]
   }
 }]]></component>
@@ -58,6 +59,7 @@
       <updated>1704336942440</updated>
       <workItem from="1713321038318" duration="1131000" />
       <workItem from="1713503811349" duration="10882000" />
+      <workItem from="1713934374050" duration="403000" />
     </task>
     <servers />
   </component>

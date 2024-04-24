@@ -51,7 +51,7 @@ function fetchInstitutionData()
         })
         .then(data =>
         {
-            //console.log('Printing successful JSON Data: ' + JSON.stringify(data));
+            console.log('Printing successful JSON Data: ' + JSON.stringify(data));
             populateDropdowns(data);
             
             //const institutions = JSON.parse(JSON.stringify(data)).documents[1];
@@ -83,12 +83,12 @@ function fetchRouteData()
             //Pass access token to data request header to remove CORS policy on browsers
             const accessToken = authData.access_token;
             const dataUrl = 'https://ap-southeast-1.aws.data.mongodb-api.com/app/data-btthb/endpoint/returnTopUserStatistics';
-            const requestData =
-                {
-                    "collection": "Institutions",
-                    "database": "WayfinderManagement",
-                    "dataSource": "Dev-WayfinderManagement"
-                };
+            // const requestData =
+            //     {
+            //         "collection": "Institutions",
+            //         "database": "WayfinderManagement",
+            //         "dataSource": "Dev-WayfinderManagement"
+            //     };
 
             return fetch(dataUrl,
                 {
@@ -98,7 +98,7 @@ function fetchRouteData()
                             'Content-Type': 'application/json',
                             'Authorization': `Bearer ${accessToken}`
                         },
-                    body: JSON.stringify(requestData),
+                    // body: JSON.stringify(requestData),
                 });
         })
         .then(response =>
@@ -111,7 +111,7 @@ function fetchRouteData()
         })
         .then(data =>
         {
-            //console.log('Printing successful JSON Data: ' + JSON.stringify(data));
+            console.log('Printing successful JSON Data: ' + JSON.stringify(data));
             populateRoutes(data);
         })
         .catch(error =>
@@ -143,9 +143,9 @@ function fetchPOINameData()
             const dataUrl = 'https://ap-southeast-1.aws.data.mongodb-api.com/app/data-btthb/endpoint/findAndReturnPointOfInterest';
             const requestData =
                 {
-                    "collection": "Institutions",
-                    "database": "WayfinderManagement",
-                    "dataSource": "Dev-WayfinderManagement"
+                    "institutionName": "Sembawang Polyclinic",
+                    "latitude": "103.82268940228674",
+                    "longitude": "1.4483829793214529"
                 };
 
             return fetch(dataUrl,
