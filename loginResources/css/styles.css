@@ -1,0 +1,74 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Nunito', sans-serif;
+    overflow: hidden; /* Prevents scrolling */
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+   
+    
+}
+
+.login-panel {
+    width: 350px;
+    padding: 20px; /* Reduced padding for a more compact look */
+    background-color: rgba(255, 255, 255, 0.8); /* Translucent white panel */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: fixed; /* Keeps the panel centered regardless of scrolling */
+    z-index: 1;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjusts position to exact center */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically */
+}
+
+.logo {
+    width: 150px; /* Adjusted size to fit better */
+    margin-bottom: 10px; /* Reduced margin for compactness */
+}
+
+.login-panel h1, .login-panel p, .login-panel form {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 2px; /* Reduced margin to make content more compact */
+}
+
+input[type="text"],
+input[type="password"] {
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px; /* Consistent margin for a neat look */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 90%; /* Ensures inputs are not stretched beyond the panel width */
+}
+
+button {
+    padding: 10px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 5px; /* Added a little top margin for spacing from the last input */
+}
+
+button:hover {
+    background-color: #004494;
+}
