@@ -19,17 +19,37 @@ function populateRoutes(jsonData) {
 
             jsonData["Sembawang Polyclinic"].topRoutes.forEach(function (route) {
                 var row = routeTable.insertRow();
-                row.insertCell(0).textContent = route.startPoint.replace(/_/g, ' ');
-                row.insertCell(1).textContent = route.endPoint.replace(/_/g, ' ');
-                row.insertCell(2).textContent = route.count;
+                var startPoint = route.startPoint.replace(/_/g, ' '); // Replace underscores with spaces
+                var endPoint = route.endPoint.replace(/_/g, ' '); // Replace underscores with spaces
+                var count = route.count;
 
-                var startPointParts = route.startPoint.split("+");
-                var latitude = parseFloat(startPointParts[1]).toString();
-                var longitude = parseFloat(startPointParts[0]).toString();
+                // Check if startPoint contains the '+' sign
+                var isStartPointWithPlus = startPoint.includes('+');
 
-                fetchPOINameData("Sembawang Polyclinic", "103.82268940228674", "1.4483829793214529");
+                // Insert startPoint into the table cell
+                var startPointCell = row.insertCell(0);
+                if (isStartPointWithPlus) {
+                    // If startPoint is numeric, prefix it with "Outlier: " before inserting into the table cell
+                    startPointCell.textContent = "Outlier: " + startPoint;
 
-                fetchPOINameData("Sembawang Polyclinic", latitude, longitude);
+                    var startPointParts = startPoint.split("+");
+                    var latitude = parseFloat(startPointParts[1]).toString();
+                    var longitude = parseFloat(startPointParts[0]).toString();
+
+                    startPointCell.textContent = fetchPOINameData("Sembawang Polyclinic", latitude, longitude);
+                    
+                } else {
+                    // If startPoint is alphanumeric, insert it directly into the table cell
+                    startPointCell.textContent = startPoint;
+                }
+
+                // Insert count into the second cell
+                row.insertCell(1).textContent = endPoint;
+                
+                // Insert count into the third cell
+                row.insertCell(2).textContent = count;
+
+                //fetchPOINameData("Sembawang Polyclinic", "103.82268940228674", "1.4483829793214529");
             });
 
             var totalSuccessFailedRow = TotalSuccessFailedTable.insertRow();

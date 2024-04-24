@@ -123,6 +123,8 @@ function fetchRouteData()
 function fetchPOINameData(institutionName, latitude, longitude)
 {
     const authUrl = 'https://services.cloud.mongodb.com/api/client/v2.0/app/data-btthb/auth/providers/anon-user/login';
+    
+    console.log("name = " + institutionName + ". lat = " + latitude + ". long = " + longitude);
 
     //Fetch authentication token to authenticate users
     //Temporarily allowing anon user login, not secure
@@ -174,7 +176,7 @@ function fetchPOINameData(institutionName, latitude, longitude)
         })
         .then(data =>
         {
-            console.log('Printing successful JSON Data: ' + JSON.parse(JSON.stringify(data)).displayName);
+            console.log('FINAL Printing successful JSON Data: ' + JSON.parse(JSON.stringify(data)).displayName);
             return data;
         })
         .catch(error =>
