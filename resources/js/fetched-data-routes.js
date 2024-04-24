@@ -22,10 +22,12 @@ function populateRoutes(jsonData) {
                 row.insertCell(0).textContent = route.startPoint.replace(/_/g, ' ');
                 row.insertCell(1).textContent = route.endPoint.replace(/_/g, ' ');
                 row.insertCell(2).textContent = route.count;
-
+                
                 var startPointParts = route.startPoint.split("+");
-                var latitude = parseFloat(startPointParts[1]);
-                var longitude = parseFloat(startPointParts[0]);
+                var latitude = parseFloat(startPointParts[1]).toString();
+                var longitude = parseFloat(startPointParts[0]).toString();
+
+                fetchPOINameData("Sembawang Polyclinic", "103.82268940228674", "1.4483829793214529");
             });
 
             var totalSuccessFailedRow = TotalSuccessFailedTable.insertRow();
@@ -43,3 +45,14 @@ function populateRoutes(jsonData) {
         }
     });
 }
+
+async function fetchDataAndAssignVariable() {
+    try {
+        const poiName = await fetchPOINameData("Sembawang Polyclinic", "103.82268940228674", "1.4483829793214529");
+        console.log(poiName); // Now you can use the fetched value
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+fetchDataAndAssignVariable();

@@ -51,7 +51,7 @@ function fetchInstitutionData()
         })
         .then(data =>
         {
-            console.log('Printing successful JSON Data: ' + JSON.stringify(data));
+            //console.log('Printing successful JSON Data: ' + JSON.stringify(data));
             populateDropdowns(data);
             
             //const institutions = JSON.parse(JSON.stringify(data)).documents[1];
@@ -111,7 +111,7 @@ function fetchRouteData()
         })
         .then(data =>
         {
-            console.log('Printing successful JSON Data: ' + JSON.stringify(data));
+            //console.log('Printing successful JSON Data: ' + JSON.stringify(data));
             populateRoutes(data);
         })
         .catch(error =>
@@ -120,7 +120,7 @@ function fetchRouteData()
         });
 }
 
-function fetchPOINameData()
+function fetchPOINameData(institutionName, latitude, longitude)
 {
     const authUrl = 'https://services.cloud.mongodb.com/api/client/v2.0/app/data-btthb/auth/providers/anon-user/login';
 
@@ -135,7 +135,12 @@ function fetchPOINameData()
                     'Content-Type': 'application/json'
                 }
         })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to fetch authentication token');
+            }
+            return response.json();
+        })
         .then(authData =>
         {
             //Pass access token to data request header to remove CORS policy on browsers
@@ -143,9 +148,9 @@ function fetchPOINameData()
             const dataUrl = 'https://ap-southeast-1.aws.data.mongodb-api.com/app/data-btthb/endpoint/findAndReturnPointOfInterest';
             const requestData =
                 {
-                    "institutionName": "Sembawang Polyclinic",
-                    "latitude": "103.82268940228674",
-                    "longitude": "1.4483829793214529"
+                    "institutionName": institutionName,
+                    "latitude": latitude,
+                    "longitude": longitude
                 };
 
             return fetch(dataUrl,
@@ -169,11 +174,13 @@ function fetchPOINameData()
         })
         .then(data =>
         {
-            console.log('Printing successful JSON Data: ' + JSON.stringify(data));
+            console.log('Printing successful JSON Data: ' + JSON.parse(JSON.stringify(data)).displayName);
+            return JSON.parse(JSON.stringify(data)).displayName;
         })
         .catch(error =>
         {
             console.error('There was a problem with your fetch operation:', error);
+            throw error;
         });
 }
 
