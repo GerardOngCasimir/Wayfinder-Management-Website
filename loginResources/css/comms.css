@@ -1,0 +1,169 @@
+.transparent-panel {
+    /* Your existing styles for .transparent-panel */
+    display: flex; /* Set up a flex container for the two panels */
+    gap: 20px; /* adds space between the two panels */
+}
+
+.comms-left-panel,
+.comms-right-panel {
+    flex: 1; /* Each panel will take up half of the .transparent-panel container */
+    padding: 20px; /* Add padding inside the panels for spacing */
+    overflow-y: auto; /* Add scroll to each panel if content is too long */
+    position: relative; /* Position relative for absolute positioning inside */
+    flex: 1;
+    padding: 20px;
+    margin-left:0px; /* Should match the width of the sidebar */
+}
+
+.comms-right-panel-title {
+    text-align: left; /* Aligns the title text to the right */
+    margin: 0;
+    padding: 0 0px; /* Padding on the right, adjust as needed */  
+}
+.comms-left-panel {
+flex: 60%; /* Assigns 30% of the container space to the left panel */
+padding: 10px;
+}
+.comms-right-panel {
+flex: 40%; /* Assigns 30% of the container space to the left panel */
+padding: 10px;
+}
+.comms-left-panel-title {
+    text-align: left; /* Aligns the title text to the right */
+    margin: 0;
+    padding: 0 0px; /* Padding on the right, adjust as needed */
+    
+}
+/*status label*/
+.comms-label-container {
+    text-align: left; /* Aligns the labels to the left; adjust as needed */
+    margin: 0; /* Removes default margin for tighter spacing */
+    padding: 2px 0; /* Adds vertical padding for better spacing */
+    display: flex; /* Use flexbox to better manage spacing and alignment */
+    flex-wrap: wrap; /* Allows labels to wrap on small screens */
+}
+
+.comms-clickable-label {
+    font-size: 12px; /* Increased font size for better readability */
+    text-transform: uppercase; /* Makes all characters uppercase for a more modern look */
+    letter-spacing: 1px; /* Increases spacing between letters */
+    display: inline-block; /* Ensures labels are in a line */
+    padding: 6px 12px; /* Larger padding for a more clickable area */
+    margin: 5px 10px; /* Space between labels */
+    text-decoration: none; /* Removes underline */
+    color: #FFFFFF; /* Brighter text color for contrast */
+    background-color: #606060; /* A darker, more subtle background color */
+    border: none; /* Removes border for a cleaner look */
+    border-radius: 20px; /* More pronounced rounded corners for modern style */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for 3D effect */
+    transition: all 0.3s ease; /* Smooth transition for all properties */
+}
+
+.comms-clickable-label:hover,
+.comms-clickable-label:focus {
+    background-color: #787878; /* A lighter shade for hover effect */
+    color: #FFFFFF; /* Keeps text color consistent on hover */
+    cursor: pointer; /* Indicates clickability */
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3); /* Larger shadow on hover for depth */
+}
+
+
+/*data grid*/
+.data-grid-container {
+    width: 100%;
+    overflow-y: auto; /* Enables vertical scrolling if necessary */
+}
+
+.data-grid {
+    width: 100%;
+    border-collapse: collapse; /* Ensures border lines are combined */
+    table-layout: fixed; /* Helps keep column widths consistent */
+    font-size: small;
+}
+
+.data-grid th, .data-grid td {
+    border: 1px solid #ddd; /* Cell borders */
+    padding: 8px; /* Cell padding */
+    text-align: left; /* Align text to the left */
+    overflow: hidden; /* Keep content within cell bounds */
+    white-space: nowrap; /* Keep content on a single line */
+    text-overflow: ellipsis; /* Show ellipsis if content overflows */
+}
+
+.data-grid th {
+    background-color: #f4f4f4; /* Column header background */
+    position: sticky; /* Sticky header */
+    top: 0; /* Stick to the top of the grid */
+}
+
+.pagination-container {
+    margin-top: 10px; /* Space above the pagination controls */
+    text-align: center; /* Center the pagination controls */
+}
+
+/* Styling for pagination controls, rows per page selection, etc. would go here */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: x-small;
+}
+
+.pagination-container a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd; /* Add borders to your links */
+    margin: 0 4px; /* Space out the page numbers */
+}
+
+.pagination-container a.active {
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
+}
+
+.pagination-container a:hover:not(.active) {
+    background-color: #ddd;
+}
+/*grid icons*/
+.grid-actions {
+    display: flex;  /* Enables flexbox layout */
+    justify-content: space-between;  /* Spreads content to fill the available line space */
+    align-items: center;  /* Aligns items vertically in the center */
+    width: 100%;  /* Ensures the div takes full width of the td */
+}
+
+.edit-icon-link {
+    text-align: right;  /* Aligns the link content (the image) to the right */
+    transition: transform 0.3s ease;  /* Smooth transformation on hover */
+}
+
+.grid-icon {
+    width: 20px;  /* Adjust size as needed */
+    height: auto;  /* Maintains aspect ratio */
+}
+
+.edit-icon-link:hover {
+    transform: scale(1.1);  /* Scales up the icon slightly on hover */
+    cursor: pointer;  /* Changes cursor to indicate clickable */
+}
+
+
+
+/* Media section*/
+
+@media screen and (max-width: 600px) {
+    .pagination-container a {
+        padding: 4px 8px; /* Smaller padding on small screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .transparent-panel {
+        flex-direction: column; /* Stack the panels on top of each other on smaller screens */
+    }
+}

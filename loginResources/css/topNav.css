@@ -1,0 +1,212 @@
+/* main.css */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+body {
+
+    font-family: 'Nunito', sans-serif;
+}
+
+/*header*/
+.mainpageHeader{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 95%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    padding: 20px 30px; /* Adjusted padding */
+    background: transparent;
+}
+/*background image properties*/
+.background-image{
+    min-height: 100vh;
+    background: no-repeat;
+    opacity: 0.09;
+}
+/*Logo for the top navigation bar only
+.mainpageLogo{
+    font-size: 32px;
+    color: #1e1e1e;
+    text-decoration: none;
+    font-weight: 700;
+}*/
+/*Nav items*/
+.mainpageNavbar {
+    display: flex;
+    align-items: center; /* Centers items vertically */
+}
+.mainpageNavbar a {
+    font-size: 14px;
+    color: #1e1e1e; /* Change this to a darker shade for better contrast */
+    font-weight: 500;
+    text-decoration: none;
+    padding: 5px 10px; /* Adds padding around the text */
+    margin: 0 10px; /* Reduces margin to accommodate padding */
+    background: transparent; /* Semi-transparent white background for each item */
+    border-radius: 20px; /* Rounded corners for the background */
+    transition: background-color .5s, color .5s; /* Smooth transition for hover effect */
+    text-decoration: none;
+    font-style: normal;
+}
+
+.mainpageNavbar a:hover, .mainpageNavbar a:focus {
+    background-color: rgba(38,116,218, 2); /* Slightly darker on hover/focus */
+    color: #ffffff; /* Change text color on hover/focus for better visibility */
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.mainpageNavbar a::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 20x;
+    background: white;
+    transition: .5s;
+}
+.mainpageNavbar a:hover:before {
+    width: 100%;
+}
+/*Logout toggle*/
+/* Add this to your existing CSS file */
+
+/* Toggle switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 14px;
+    margin-left: 10px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 10px;
+    width: 10px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  
+  .login-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1; /* Stretch to the end of the nav container */
+  }
+  
+  #loginStatus {
+    margin-left: 5px;
+    margin-right: 2px;
+  }
+
+/* User profile styles */
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Adjust space between image and text */
+}
+
+.user-image {
+    width: 50px; /* Adjust size as needed */
+    height: 50px; /* Adjust size as needed */
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ffffff; /* White border around the image */
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    color: #1e1e1e; /* Or choose a color that matches your design */
+}
+
+.user-name {
+    font-size: 18px; /* Adjust size as needed */
+    font-weight: 700; /* Bold for user name */
+}
+
+.user-role {
+    font-size: 14px; /* Adjust size as needed */
+}
+
+.user-status {
+    display: flex;
+    align-items: center;
+    font-size: 12px; /* Adjust size as needed */
+    color: green; /* Green to indicate online status */
+}
+
+.status-indicator {
+    width: 10px; /* Adjust size as needed */
+    height: 10px; /* Adjust size as needed */
+    border-radius: 50%;
+    background-color: green; /* Green to indicate online status */
+    margin-right: 5px; /* Space between the indicator and the text */
+}
+
+.logout-button {
+    background-color: #f44336; /* Red color for logout to indicate action */
+    color: #ffffff; /* White text for visibility */
+    border: none;
+    border-radius: 20px; /* Rounded borders for aesthetics */
+    padding: 5px 15px;
+    font-weight: 600;
+    cursor: pointer;
+    text-transform: uppercase; /* Optional: makes the button text uppercase */
+    font-size: 14px;
+    margin-left: 10px;
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.logout-button:hover {
+    background-color: #c1352b; /* Slightly darker shade on hover */
+}
