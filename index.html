@@ -16,8 +16,9 @@
     <link rel="stylesheet" href="resources/css/button.css">
     <link rel="stylesheet" href="resources/css/container.css">
     <link rel="stylesheet" href="resources/css/dropdown.css">
-    <link rel="stylesheet" href="resources/css/headertitle.css">
+    <link rel="stylesheet" href="resources/css/header-title.css">
     <link rel="stylesheet" href="resources/css/table.css">
+    <link rel="stylesheet" href="resources/css/scrollable-container.css">
 
     <!-- javascripts -->
     <script src="resources/js/option-reset-behaviour.js"></script>
@@ -92,12 +93,12 @@
                 <div class="table-header">
                     <h3>Top Routes</h3>
                     <div class="header-controls">
-                        <select id="table2Options" class="table-dropdown">
+                        <select id="table2Options" class="table-dropdown" disabled>
                             <option value="">Select Option</option>
                             <option value="opt1">Option 1</option>
                             <option value="opt2">Option 2</option>
                         </select>
-                        <button class="icon-btn"><img src="" alt="Refresh"/></button>
+                        <button class="icon-btn"><img src="resources/images/Image-Refresh-disabled.png" alt="Refresh" id="refresh icon" disabled/></button>
                     </div>
                 </div>
                 <table>
@@ -111,9 +112,13 @@
                         <th>Count</th>
                     </tr>
                     </thead>
-                    <tbody id="routeTable">
-                    </tbody>
                 </table>
+                <div class ="scrollable-box">
+                    <table>
+                        <tbody id="routeTable">
+                        </tbody>
+                    </table>
+                </div>
                 <table>
                     <tr>
                         <td class="deco">Single Level</td>

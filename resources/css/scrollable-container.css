@@ -1,0 +1,7 @@
+﻿.scrollable-box {
+    max-height: 200px; /* Adjust the height as needed */
+    border: 1px solid #ccc; /* Optional: Add border for visual clarity */
+    padding: 10px; /* Optional: Add padding for spacing */
+    overflow-y: auto;
+    overflow-x:hidden;
+}

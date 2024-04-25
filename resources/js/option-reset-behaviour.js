@@ -15,6 +15,8 @@ function enableQuestion2() {
     var routeTable = document.getElementById('routeTable');
     var TotalSuccessFailedTable = document.getElementById('TotalSuccessFailedTable');
     var LongestShortestTable = document.getElementById('LongestShortestTable');
+    var refreshicon = document.getElementById("refresh icon");
+    var topRoutesDisplayOptions = document.getElementById("table2Options");
     
     if (question1Value) {
         question2Select.disabled = false;
@@ -50,8 +52,14 @@ function enableQuestion2() {
         deleteicon.disabled = true;
         deleteicon.src = "resources/images/Image-Delete-disabled.png";
         
+        refreshicon.disabled = true;
+        refreshicon.src = "resources/images/Image-Refresh-disabled.png";
+        
         uploadbutton.disabled = true;
         uploadbutton.className = "secondary-btn";
+        
+        topRoutesDisplayOptions.disabled = true;
+        topRoutesDisplayOptions.value = "";
         
         routeTable.textContent = "";
         

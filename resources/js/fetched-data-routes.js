@@ -12,6 +12,13 @@ function populateRoutes(jsonData) {
         var TotalSuccessFailedTable = document.getElementById('TotalSuccessFailedTable');
         var LongestShortestTable = document.getElementById('LongestShortestTable');
 
+        var refreshicon = document.getElementById("refresh icon");
+        refreshicon.disabled = false;
+        refreshicon.src = "resources/images/Image-Refresh-enabled.png";
+
+        var topRoutesDisplayOptions = document.getElementById("table2Options");
+        topRoutesDisplayOptions.disabled = false;
+        
         if (checkSelectedValue) {
             jsonData["Sembawang Polyclinic"].topRoutes.sort(function (a, b) {
                 return b.count - a.count;
@@ -65,6 +72,7 @@ function populateRoutes(jsonData) {
             var longestShortestRow = LongestShortestTable.insertRow();
             longestShortestRow.insertCell(0).textContent = (jsonData["Sembawang Polyclinic"].largestLongestDuration * 3600 / 60).toFixed(1);
             longestShortestRow.insertCell(1).textContent = (jsonData["Sembawang Polyclinic"].smallestShortestDuration * 3600 / 60).toFixed(1);
+            
         } else if (selectedValue === "") {
             routeTable.textContent = "";
             TotalSuccessFailedTable.textContent = "";

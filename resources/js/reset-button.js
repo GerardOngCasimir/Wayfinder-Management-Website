@@ -34,6 +34,14 @@
     deleteicon.disabled = true;
     deleteicon.src = "resources/images/Image-Delete-disabled.png";
 
+    var refreshicon = document.getElementById("refresh icon");
+    refreshicon.disabled = true;
+    refreshicon.src = "resources/images/Image-Refresh-disabled.png";
+
+    var topRoutesDisplayOptions = document.getElementById("table2Options");
+    topRoutesDisplayOptions.disabled = true;
+    topRoutesDisplayOptions.value = "";
+    
     var routeTable = document.getElementById('routeTable');
     routeTable.textContent = "";
     

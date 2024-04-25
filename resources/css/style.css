@@ -71,18 +71,18 @@ h3 {
 /*thumbnail*/
 .thumbnail-container {
     display: flex;
-    overflow-x: scroll;
-    margin-top: 10px;
-    opacity: 0.0;
-    }
-.thumbnail-container {
-    display: flex;
     overflow-x: auto; /* Enables horizontal scrolling */
     align-items: center; /* Centers thumbnails vertically */
     padding: 10px 0; /* Padding above and below the thumbnails */
     gap: 10px; /* Space between thumbnails */
     margin-top: 20px; /* Space between the preview container and thumbnail section */
     }
+.thumbnail-container {
+    display: flex;
+    overflow-x: scroll;
+    margin-top: 10px;
+    opacity: 0.0;
+}
 
 .thumbnail-container img {
     height: 100px; /* Fixed height for each thumbnail */
