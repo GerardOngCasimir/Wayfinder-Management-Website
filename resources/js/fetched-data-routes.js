@@ -29,14 +29,21 @@ function populateRoutes(jsonData) {
                 // Insert startPoint into the table cell
                 var startPointCell = row.insertCell(0);
                 if (isStartPointWithPlus) {
-                    // If startPoint is numeric, prefix it with "Outlier: " before inserting into the table cell
-                    startPointCell.textContent = "Outlier: " + startPoint;
-
+                    
                     var startPointParts = startPoint.split("+");
                     var latitude = parseFloat(startPointParts[1]).toString();
                     var longitude = parseFloat(startPointParts[0]).toString();
 
-                    startPointCell.textContent = fetchPOINameData("Sembawang Polyclinic", latitude, longitude);
+                    exampleFunction();
+                    
+                    async function exampleFunction() {
+                        try {
+                            var poiName = await fetchPOINameData("Sembawang Polyclinic", latitude, longitude);
+                            startPointCell.textContent = poiName;
+                        } catch (error) {
+                            // Handle errors here
+                        }
+                    }
                     
                 } else {
                     // If startPoint is alphanumeric, insert it directly into the table cell
@@ -48,8 +55,6 @@ function populateRoutes(jsonData) {
                 
                 // Insert count into the third cell
                 row.insertCell(2).textContent = count;
-
-                //fetchPOINameData("Sembawang Polyclinic", "103.82268940228674", "1.4483829793214529");
             });
 
             var totalSuccessFailedRow = TotalSuccessFailedTable.insertRow();

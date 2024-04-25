@@ -15,10 +15,23 @@
         <h1>Sign In</h1>
         <p>Welcome back! Please login to your account.</p>
         <form>
-            <input type="text" placeholder="User ID" required>
-            <input type="password" placeholder="Password" required>
-            <button type="submit">Login</button>
+            <input type="text" placeholder="User ID" id="username" required>
+            <input type="password" placeholder="Password" id="password" required>
+            <button type="submit" onclick = "openWayfinderManagement()">Login</button>
         </form>
     </div>
+
+    <script>
+        function openWayfinderManagement() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            if (username.trim() === '' || password.trim() === '') {
+                return;
+            }
+            
+            window.open("index.html", "_blank");
+        }
+    </script>
 </body>
 </html>
