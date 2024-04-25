@@ -34,9 +34,9 @@ function populateRoutes(jsonData) {
                     var latitude = parseFloat(startPointParts[1]).toString();
                     var longitude = parseFloat(startPointParts[0]).toString();
 
-                    exampleFunction();
+                    convertLatLongToPoiName();
                     
-                    async function exampleFunction() {
+                    async function convertLatLongToPoiName() {
                         try {
                             var poiName = await fetchPOINameData("Sembawang Polyclinic", latitude, longitude);
                             startPointCell.textContent = poiName;
