@@ -82,6 +82,7 @@ function fetchRouteData()
         {
             //Pass access token to data request header to remove CORS policy on browsers
             const accessToken = authData.access_token;
+            console.log("Access token:" + accessToken);
             const dataUrl = 'https://ap-southeast-1.aws.data.mongodb-api.com/app/data-btthb/endpoint/returnTopUserStatistics';
             // const requestData =
             //     {
