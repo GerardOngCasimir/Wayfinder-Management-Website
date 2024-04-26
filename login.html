@@ -17,24 +17,11 @@
         <img src="loginResources/img/logo_copyrights/Logo.png" alt="Company Logo" class="logo">
         <h1>Sign In</h1>
         <p>Welcome back! Please login to your account.</p>
-        <form>
+        <form id = "loginForm">
             <input type="text" placeholder="User ID" id="username" required>
             <input type="password" placeholder="Password" id="password" required>
-            <button type="submit" onclick = "openWayfinderManagement()">Login</button>
+            <button type="submit">Login</button>
         </form>
     </div>
-
-    <script>
-        function openWayfinderManagement() {
-            var username = document.getElementById("username").value;
-            var password = document.getElementById("password").value;
-
-            if (username.trim() === '' || password.trim() === '') {
-                return;
-            }
-            
-            window.open("index.html", "_blank");
-        }
-    </script>
 </body>
 </html>

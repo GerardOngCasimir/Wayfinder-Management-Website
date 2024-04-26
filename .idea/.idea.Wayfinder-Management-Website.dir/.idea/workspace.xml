@@ -13,6 +13,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -43,9 +50,9 @@
   },
   "keyToStringList": {
     "rider.external.source.directories": [
-      "/Users/daf/Library/Application Support/JetBrains/Rider2023.2/resharper-host/DecompilerCache",
-      "/Users/daf/Library/Application Support/JetBrains/Rider2023.2/resharper-host/SourcesCache",
-      "/Users/daf/.local/share/Symbols/src"
+      "C:\\Users\\casim\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\casim\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\casim\\AppData\\Local\\Symbols\\src"
     ]
   }
 }]]></component>
@@ -60,6 +67,7 @@
       <workItem from="1713321038318" duration="1131000" />
       <workItem from="1713503811349" duration="10882000" />
       <workItem from="1713934374050" duration="403000" />
+      <workItem from="1714113428539" duration="4558000" />
     </task>
     <servers />
   </component>
