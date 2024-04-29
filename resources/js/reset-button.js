@@ -1,66 +1,64 @@
-﻿function resetselection() 
-{
-    document.getElementById("facility").value = "";
-    document.getElementById("level").value = "";
-    document.getElementById("POI").value = "";
-    
-    var leveldropdown = document.getElementById("level");
-    leveldropdown.disabled = true;
+﻿function resetSelection() {
+     document.getElementById('facility').value = ''
+     document.getElementById('level').value = ''
+     document.getElementById('POI').value = ''
 
-    var poidropdown = document.getElementById("POI");
-    poidropdown.disabled = true;
+     var levelDropdown = document.getElementById('level')
+     levelDropdown.disabled = true
 
-    var loadbutton = document.getElementById("load");
-    loadbutton.disabled = true;
-    loadbutton.className = "secondary-btn";
+     var poiDropdown = document.getElementById('POI')
+     poiDropdown.disabled = true
 
-    var resetbutton = document.getElementById("reset");
-    resetbutton.disabled = true;
-    resetbutton.className = "secondary-btn";
+     var loadButton = document.getElementById('load')
+     loadButton.disabled = true
+     loadButton.className = 'secondary-btn'
 
-    var uploadbutton = document.getElementById('upload');
-    uploadbutton.disabled = true;
-    uploadbutton.className = "secondary-btn";
+     var resetButton = document.getElementById('reset')
+     resetButton.disabled = true
+     resetButton.className = 'secondary-btn'
 
-    var thumbnailcontainer = document.getElementById("thumbnail container");
-    thumbnailcontainer.style.opacity = 0.0;
-    thumbnailcontainer.style.display = "none";
+     var uploadButton = document.getElementById('upload')
+     uploadButton.disabled = true
+     uploadButton.className = 'secondary-btn'
 
-    var editicon = document.getElementById("edit icon");
-    editicon.disabled = true;
-    editicon.src = "resources/images/Image-Edit-disabled.png";
+     var thumbnailContainer = document.getElementById('thumbnail container')
+     thumbnailContainer.style.opacity = 0.0
+     thumbnailContainer.style.display = 'none'
 
-    var deleteicon = document.getElementById("delete icon");
-    deleteicon.disabled = true;
-    deleteicon.src = "resources/images/Image-Delete-disabled.png";
+     var editIcon = document.getElementById('edit icon')
+     editIcon.disabled = true
+     editIcon.src = 'resources/images/Image-Edit-disabled.png'
 
-    var refreshicon = document.getElementById("refresh icon");
-    refreshicon.disabled = true;
-    refreshicon.src = "resources/images/Image-Refresh-disabled.png";
+     var deleteIcon = document.getElementById('delete icon')
+     deleteIcon.disabled = true
+     deleteIcon.src = 'resources/images/Image-Delete-disabled.png'
 
-    var topRoutesDisplayOptions = document.getElementById("table2Options");
-    topRoutesDisplayOptions.disabled = true;
-    topRoutesDisplayOptions.value = "";
-    
-    var routeTable = document.getElementById('routeTable');
-    routeTable.textContent = "";
-    
-    var TotalSuccessFailedTable = document.getElementById('TotalSuccessFailedTable');
-    TotalSuccessFailedTable.textContent = "";
-    
-    var LongestShortestTable = document.getElementById('LongestShortestTable');
-    LongestShortestTable.textContent = "";
+     var refreshIcon = document.getElementById('refresh icon')
+     refreshIcon.disabled = true
+     refreshIcon.src = 'resources/images/Image-Refresh-disabled.png'
 
-    var level = document.getElementById('level');
-    var POI = document.getElementById('POI');
-    
-    alert("Options reset");
-    
-    var image = document.getElementById('preview-container');
+     var topRoutesDisplayOptions = document.getElementById('table2Options')
+     topRoutesDisplayOptions.disabled = true
+     topRoutesDisplayOptions.value = ''
 
-    image.src = "resources/images/Image-no-preview.png";
+     var routeTable = document.getElementById('routeTable')
+     routeTable.textContent = ''
+
+     var totalSuccessFailedTable = document.getElementById(
+          'TotalSuccessFailedTable'
+     )
+     totalSuccessFailedTable.textContent = ''
+
+     var longestShortestTable = document.getElementById('LongestShortestTable')
+     longestShortestTable.textContent = ''
+
+     alert('Options reset')
+
+     var image = document.getElementById('preview-container')
+
+     image.src = 'resources/images/Image-no-preview.png'
 }
 
-var button = document.getElementById("reset");
+var button = document.getElementById('reset')
 
-button.addEventListener('click', resetselection);
+button.addEventListener('click', resetSelection)
