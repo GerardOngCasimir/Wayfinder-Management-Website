@@ -69,21 +69,21 @@ h3 {
 
 /*thumbnail*/
 .thumbnail-container {
-    display: flex;
-    overflow-x: auto; /* Enables horizontal scrolling */
+    width: 100%;
+    max-width: 1000px; /* Set a maximum width to prevent container expansion */
+    white-space: nowrap; /* Prevent images from wrapping */
+    overflow-x: scroll; /* Enable horizontal scrolling */
+    overflow-y: hidden; /* Hide vertical scrollbar */
+    font-size: 0; /* Remove white space between inline-block elements */
     align-items: center; /* Centers thumbnails vertically */
     padding: 10px 0; /* Padding above and below the thumbnails */
     gap: 10px; /* Space between thumbnails */
     margin-top: 20px; /* Space between the preview container and thumbnail section */
-    }
-.thumbnail-container {
-    display: flex;
-    overflow-x: scroll;
-    margin-top: 10px;
     opacity: 0.0;
 }
 
 .thumbnail-container img {
+    display: inline-block; /* Display images side by side */
     height: 100px; /* Fixed height for each thumbnail */
     width: auto; /* Maintain aspect ratio */
     flex: 0 0 auto; /* Don’t grow, don’t shrink, based on width auto */

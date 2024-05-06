@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
 
     <!-- stylesheets -->
+    <link rel="stylesheet" href="resources/css/loading-gallery.css">
     <link rel="stylesheet" href="resources/css/general.css">
     <link rel="stylesheet" href="resources/css/header.css">
     <link rel="stylesheet" href="resources/css/style.css">
@@ -21,9 +22,9 @@
     <link rel="stylesheet" href="resources/css/scrollable-container.css">
 
     <!-- javascripts -->
+    <script src="resources/js/load-image.js"></script>
     <script src="resources/js/option-reset-behaviour.js"></script>
     <script src="resources/js/reset-button.js"></script>
-    <script src="resources/js/load-image.js"></script>
     <script src="resources/js/show-preview.js"></script>
     <script src="resources/js/fetched-json-data.js"></script>
     <script src="resources/js/fetched-data-sembawang.js"></script>
@@ -63,7 +64,7 @@
                     </select>
                 </div>
                 <div class="button-group">
-                    <button class="secondary-btn" id = "load" onclick = "loadimage()" disabled>Load</button>
+                    <button class="secondary-btn" id = "load" onclick = "loadImage()" disabled>Load</button>
                     <button class="secondary-btn" id = "reset" onclick = "resetSelection();removePreview();" disabled>Reset</button>
                 </div>
             </div>
@@ -146,7 +147,7 @@
                 </table>
             </div>
         </div>
-
+        
         <div class="right-panel">
             <h3>Preview</h3>
             <div class="title-bar">
@@ -160,7 +161,10 @@
                     </button>
                 </div>
             </div>
-            
+            <!-- Loading spinner -->
+            <div class = "spinner-container">
+                <div class="spinner"></div>
+            </div>
           <div class="preview-container" id = "preview-container">
               <img src="resources/images/Image-no-preview.png" height="96" width="96" alt="preview" id="preview"/>
           </div>
@@ -169,14 +173,18 @@
                 <img src="resources/images/Sembawang_TaxiStand_Test.jpg" alt="Thumbnail 1" onclick = "showPreview(this)">
                 <img src="resources/images/Sembawang_TaxiStand_Test.jpg" alt="Thumbnail 2" onclick = "showPreview(this)">
                 <img src="resources/images/Sembawang_TaxiStand_Test.jpg" alt="Thumbnail 3" onclick = "showPreview(this)">
+                <img src="resources/images/Sembawang_TaxiStand_Test.jpg" alt="Thumbnail 4" onclick = "showPreview(this)">
+                <img src="resources/images/Sembawang_TaxiStand_Test.jpg" alt="Thumbnail 5" onclick = "showPreview(this)">
+                <img src="resources/images/Sembawang_TaxiStand_Test.jpg" alt="Thumbnail 6" onclick = "showPreview(this)">
+                <img src="resources/images/Sembawang_TaxiStand_Test.jpg" alt="Thumbnail 7" onclick = "showPreview(this)">
+                <img src="resources/images/Sembawang_TaxiStand_Test.jpg" alt="Thumbnail 8" onclick = "showPreview(this)">
+                <img src="resources/images/Sembawang_TaxiStand_Test.jpg" alt="Thumbnail 9" onclick = "showPreview(this)">
                 <!-- Add more images as needed -->
             </div>
-
             <div class="button-group">
                 <button class="secondary-btn" id = "upload" disabled>Upload</button>
             </div>
         </div>
-        
     </div>
     
     
