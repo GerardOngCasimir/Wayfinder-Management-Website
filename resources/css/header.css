@@ -2,14 +2,13 @@
 {
     /* display properties */
     display: block;
-    margin-top: 50px;
+    margin-top: 20px;
     padding-bottom: 20px;    
     border-bottom: 0.2rem solid rgba(173, 216, 230, 0.35);
     
     /* font properties */
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 550;
     text-align: center;
-
     color: #14a5a9;
 }
