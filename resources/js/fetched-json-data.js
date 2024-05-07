@@ -130,4 +130,5 @@ async function fetchPOINameData(institutionName, latitude, longitude) {
 window.onload = function () {
      fetchRouteData()
      fetchInstitutionData()
+     fetchPOINameData()
 }
