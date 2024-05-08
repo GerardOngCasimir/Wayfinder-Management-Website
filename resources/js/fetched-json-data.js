@@ -71,7 +71,9 @@ function fetchRouteData() {
                return response.json()
           })
           .then((data) => {
-               //console.log('Printing successful JSON Data: ' + JSON.stringify(data));
+               console.log(
+                    'Printing successful JSON Data: ' + JSON.stringify(data)
+               )
                populateRoutes(data)
           })
           .catch((error) => {
