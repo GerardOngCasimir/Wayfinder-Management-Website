@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wayfinder Management</title>
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-AC5+eIGuH/uMvz+pZz5x1szr5lj1LJs+tZgZT+XxY5oYUEXcdh8kz82jAKL3Btm5OfpTRTjZGA5ka4fjbaD4w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="resources/css/landingContainer.css">
+
+    <!-- scripts -->
+    <script src="resources/js/transition.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Wayfinder Management</h1>
+        <nav>
+            <button>Home</button>
+            <button>Sign Out</button>
+        </nav>
+    </header>
+    <main>
+        <div class="left-panel" id="left-panel">
+            <h2>Select Institute</h2>
+            <div class="institute-grid">
+                <!-- Institute buttons -->
+                <button class="institute-button" onclick="selectInstitute('Sembawang Poly')">
+                    <img src="resources/images/logo.png" alt="Institute Logo">
+                    <span>Sembawang Poly</span>
+                </button>
+                <button class="institute-button" onclick="selectInstitute('Hougang Poly')">
+                    <img src="resources/images/logo.png" alt="Institute Logo">
+                    <span>Hougang Poly</span>
+                </button>
+                <button class="institute-button" onclick="selectInstitute('Tan Tock Seng Hospital')">
+                    <img src="resources/images/TTSH logo.png" alt="Institute Logo">
+                    <span>Tan Tock Seng Hospital</span>
+                </button>
+            </div>
+        </div>
+        <div class="right-panel hidden" id="right-panel">
+            <div id="selected-institute">Selected Institute: </div>
+            <div class="option-grid">
+                <a href="maps.html">
+                    <button class="option-button"><span>Maps</span></button>
+                </a>
+                <a href="gallary.html"><button class="option-button"><span>Gallery</span></button></a>
+                <button class="option-button"><span>Stats</span></button>
+            </div>
+            <button class="back-button hidden" id="back-button" onclick="goBack()">Back</button>
+        </div>
+    </main>
+</body>
+</html>

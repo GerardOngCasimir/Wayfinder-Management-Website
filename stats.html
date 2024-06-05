@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Wayfinder Management</title>
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="resources/css/loading-gallery.css">
+    <link rel="stylesheet" href="resources/css/general.css">
+    <link rel="stylesheet" href="resources/css/header.css">
+    <link rel="stylesheet" href="resources/css/style.css">
+    <link rel="stylesheet" href="resources/css/button.css">
+    <link rel="stylesheet" href="resources/css/container.css">
+    <link rel="stylesheet" href="resources/css/dropdown.css">
+    <link rel="stylesheet" href="resources/css/header-title.css">
+    <link rel="stylesheet" href="resources/css/table.css">
+    <link rel="stylesheet" href="resources/css/scrollable-container.css">
+
+    <!-- javascripts -->
+    <script src="resources/js/load-image.js"></script>
+    <script src="resources/js/option-reset-behaviour.js"></script>
+    <script src="resources/js/reset-button.js"></script>
+    <script src="resources/js/show-preview.js"></script>
+    <script src="resources/js/fetched-json-data.js"></script>
+    <script src="resources/js/fetched-data-sembawang.js"></script>
+    <script src="resources/js/fetched-data-routes.js"></script>
+    <script src="resources/js/fetch-gallery.js"></script>
+</head>
+
+<body>
+    <header class = "webpage-title">Wayfinder Management</header>
+
+    <div class = "container">
+        <div class = "left-panel">
+            <div class="title-bar">
+                <h3>Title</h3>
+            </div>
+            
+            <div class = "section">
+                <div class = "dropdown-group">
+                    <div class = "dropdown-container">
+                        <label for="facility">Facility</label>
+                        <select name="facility" id="facility" onchange = "enableQuestion2()">
+                            <option value="">Select an option</option>
+                        </select>
+                    </div>
+
+                    <div class = "dropdown-container" id = "question2-div">
+                        <label for="level">Level</label>
+                        <select name="level" id="level" disabled onchange = "enableQuestion3()">
+                            <option value="">Select an option</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class = "dropdown-container" id = "question3-div">
+                    <label for="POI">Point of Interest (POI)</label>
+                    <select name="POI" id="POI" disabled>
+                        <option value="">Select an option</option>
+                    </select>
+                </div>
+                <div class="button-group">
+                    <button class="secondary-btn" id = "load" onclick = "loadImage();loadGallery();" disabled>Load</button>
+                    <button class="secondary-btn" id = "reset" onclick = "resetSelection();removePreview();" disabled>Reset</button>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>Feature Interaction stats</h3>
+                <table>
+                    <tr>
+                        <td>Total </td>
+                        <td>Sucessful </td>
+                        <td>Failed </td>
+                    </tr>
+                    <tbody id="totalSuccessFailedTable">
+                    </tbody>
+                    <tr>
+                        <td>Longest (min)</td>
+                        <td>Shortest (min)</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+
+                    </tr>
+                    <tbody id="longestShortestTable">
+                    </tbody>
+
+                </table>
+                <div class="table-header">
+                    <h3>Top Routes</h3>
+                    <div class="header-controls">
+                        <select id="table2Options" class="table-dropdown" disabled>
+                            <option value="">Select Option</option>
+                            <option value="opt1">Option 1</option>
+                            <option value="opt2">Option 2</option>
+                        </select>
+                        <button class="icon-btn"><img src="resources/images/Image-Refresh-disabled.png" alt="Refresh" id="refresh icon" disabled/></button>
+                    </div>
+                </div>
+                <table>
+                    <thead>
+                    <tr>
+                        <td class="deco">Cross Level</td>
+                    </tr>
+                    <tr>
+                        <th>Start Point</th>
+                        <th>End Point</th>
+                        <th>Count</th>
+                    </tr>
+                    </thead>
+                </table>
+                <div class ="scrollable-box">
+                    <table>
+                        <tbody id="routeTable">
+                        </tbody>
+                    </table>
+                </div>
+                <table>
+                    <tr>
+                        <td class="deco">Single Level</td>
+                    </tr>
+                    <tr>
+                        <td>Level 1</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Level 2</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        <div class="right-panel">
+            <h3>Preview</h3>
+            <div class="title-bar">
+                <p>Image Name</p>
+                <div class="button-group">
+                    <button class="icon-btn" disabled>
+                        <img src="resources/images/Image-Edit-disabled.png" alt="Edit thumbnail" id = "edit icon">
+                    </button>
+                    <button class="icon-btn" disabled>
+                        <img src="resources/images/Image-Delete-disabled.png" alt="Delete thumbnail" id = "delete icon">
+                    </button>
+                </div>
+            </div>
+            <!-- Loading spinner -->
+            <div class = "spinner-container">
+                <div class="spinner"></div>
+            </div>
+          <div class="preview-container" id = "preview-container">
+              <img src="resources/images/Image-no-preview.png" height="96" width="96" alt="preview" id="preview"/>
+          </div>
+            <div class="thumbnail-container" id = "thumbnail container" style = "display: none;">
+                <!-- Thumbnails go here -->
+                
+                <!-- Add more images as needed -->
+            </div>
+            <div class="button-group">
+                <button class="secondary-btn" id = "upload" disabled>Upload</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

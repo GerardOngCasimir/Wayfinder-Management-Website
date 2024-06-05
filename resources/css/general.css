@@ -1,7 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
-body, html {
+body {
+    font-family: "Raleway", sans-serif;
     margin: 0;
     padding: 0;
-    font-family: "Raleway", sans-serif;
+    background-color: #282C34;
+    color: #FFFFFF;
+    min-height: 100vh; /* Change height to min-height to allow for content to expand */
+    overflow-y: auto; /* Enable vertical scrolling */
     font-optical-sizing: auto;
+}
+main {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 4rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
