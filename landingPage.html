@@ -14,8 +14,11 @@
 
     <!-- stylesheets -->
     <link rel="stylesheet" href="resources/css/landingContainer.css">
+    <link rel="stylesheet" href="resources/css/transition-curtain.css">
 
     <!-- scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <script src="resources/js/transition-curtain.js" defer></script>
     <script src="resources/js/transition.js" defer></script>
 </head>
 <body>
@@ -31,9 +34,9 @@
             <h2>Select Institute</h2>
             <div class="institute-grid">
                 <!-- Institute buttons -->
-                <button class="institute-button" onclick="selectInstitute('Sembawang Poly')">
+                <button class="institute-button" onclick="selectInstitute('Sembawang Polyclinic')">
                     <img src="resources/images/logo.png" alt="Institute Logo">
-                    <span>Sembawang Poly</span>
+                    <span>Sembawang Polyclinic</span>
                 </button>
                 <button class="institute-button" onclick="selectInstitute('Hougang Poly')">
                     <img src="resources/images/logo.png" alt="Institute Logo">
@@ -44,6 +47,18 @@
                     <span>Tan Tock Seng Hospital</span>
                 </button>
             </div>
+            <div class="overlay">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
         </div>
         <div class="right-panel hidden" id="right-panel">
             <div id="selected-institute">Selected Institute: </div>
@@ -51,8 +66,12 @@
                 <a href="maps.html">
                     <button class="option-button"><span>Maps</span></button>
                 </a>
-                <a href="gallary.html"><button class="option-button"><span>Gallery</span></button></a>
-                <button class="option-button"><span>Stats</span></button>
+                <a href="gallery.html">
+                    <button class="option-button"><span>Gallery</span></button>
+                </a>
+                <a href="stats.html">
+                    <button class="option-button"><span>Stats</span></button>
+                </a>
             </div>
             <button class="back-button hidden" id="back-button" onclick="goBack()">Back</button>
         </div>

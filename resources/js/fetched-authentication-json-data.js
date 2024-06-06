@@ -46,7 +46,7 @@
                     // Store the access token in localStorage
                     localStorage.setItem('accessToken', accessToken)
 
-                    window.location.href = 'index.html'
+                    window.location.href = 'landingPage.html'
                })
                .catch((error) => {
                     console.error(

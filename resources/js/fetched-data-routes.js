@@ -18,6 +18,11 @@ function populateRoutes(jsonData) {
                     'longestShortestTable'
                )
 
+               // Clear existing content
+               clearTable(routeTable);
+               clearTable(totalSuccessFailedTable);
+               clearTable(longestShortestTable);
+               
                var refreshIcon = document.getElementById('refresh icon')
                refreshIcon.disabled = false
                refreshIcon.src = 'resources/images/Image-Refresh-enabled.png'
@@ -112,10 +117,17 @@ function populateRoutes(jsonData) {
                          60
                     ).toFixed(1)
                } else if (selectedValue === '') {
-                    routeTable.textContent = ''
-                    totalSuccessFailedTable.textContent = ''
-                    longestShortestTable.textContent = ''
+                    clearTable(routeTable);
+                    clearTable(totalSuccessFailedTable);
+                    clearTable(longestShortestTable);
                }
           }, 2000)
      })
+
+     // Function to clear table contents
+     function clearTable(table) {
+          while (table.rows.length > 0) {
+               table.deleteRow(0);
+          }
+     }
 }

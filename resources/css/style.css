@@ -19,10 +19,12 @@ td {
     
     padding: 8px; /* Padding for content within cells */
     text-align: left; /* Align text to the left */
-    background-color:none; /* Light background for better readability */
+    background-color: transparent; /* Light background for better readability */
+    color: black;
     }
 tr:nth-child(even) {
-    background-color: none; /* Zebra striping for rows */
+    background-color: transparent; /* Zebra striping for rows */
+    
     }
 /*Typography*/
 
@@ -92,7 +94,7 @@ h3 {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: adds subtle shadow for depth */
     }
 .thumbnail-container img:hover{
-    background-color: darken(#007bff, 10%); /* Slightly darken button on hover */
+    background-color: rgba(0, 123, 255, 0.9); /* Slightly darken button on hover */
     box-shadow: 0 4px 8px rgba(0,0,123,0.3); /* Larger shadow on hover for 'lifting' effect */
     }
 

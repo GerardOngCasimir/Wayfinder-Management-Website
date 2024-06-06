@@ -8,6 +8,8 @@ function populateDropdowns(jsonData) {
     const floors = firstDocument.floors;
     const pointsOfInterest = firstDocument.pointsOfInterest;
 
+    const selectedInstitute = localStorage.getItem('selectedInstitute');
+
     // Populate institution names dropdown
     const institutionsDropdown = document.getElementById('facility');
     documents.forEach(institution => {
@@ -21,6 +23,11 @@ function populateDropdowns(jsonData) {
         option.textContent = institution.name;
         institutionsDropdown.appendChild(option);
     });
+    
+    // Pre-select the stored institute if it exists
+    if (selectedInstitute) {
+        institutionsDropdown.value = selectedInstitute;
+    }
 
     // Populate floors dropdown
     const floorsDropdown = document.getElementById('level');
