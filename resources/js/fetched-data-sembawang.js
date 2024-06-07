@@ -9,9 +9,16 @@ function populateDropdowns(jsonData) {
     const pointsOfInterest = firstDocument.pointsOfInterest;
 
     const selectedInstitute = localStorage.getItem('selectedInstitute');
-
+    
     // Populate institution names dropdown
     const institutionsDropdown = document.getElementById('facility');
+
+    // Populate floors dropdown
+    const floorsDropdown = document.getElementById('level');
+
+    var loadButton = document.getElementById('load')
+    var resetButton = document.getElementById('reset')
+    
     documents.forEach(institution => {
         // check if either floors or points of interests are empty
         if (institution.floors.length === 0 || institution.pointsOfInterest.length === 0)
@@ -27,10 +34,15 @@ function populateDropdowns(jsonData) {
     // Pre-select the stored institute if it exists
     if (selectedInstitute) {
         institutionsDropdown.value = selectedInstitute;
-    }
+        floorsDropdown.disabled = false;
 
-    // Populate floors dropdown
-    const floorsDropdown = document.getElementById('level');
+        loadButton.disabled = false
+        loadButton.className = 'primary-btn'
+
+        resetButton.disabled = false
+        resetButton.className = 'primary-btn'
+    }
+    
     floors.forEach(floor => {
         const option = document.createElement('option');
         option.textContent = floor;
